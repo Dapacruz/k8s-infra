@@ -12,6 +12,8 @@ spec:
       labels:
         app: linkding
     spec:
+      serviceAccountName: cert-manager
+      automountServiceAccountToken: true
       securityContext:
         fsGroup: 33
         runAsUser: 33
