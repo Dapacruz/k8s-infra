@@ -5,4 +5,5 @@ resources:
   - namespace.yaml
   - deployment.yaml
   - storage.yaml
+  - ingress.yaml
 
