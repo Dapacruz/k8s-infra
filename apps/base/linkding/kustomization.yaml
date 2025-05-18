@@ -6,5 +6,6 @@ resources:
   - deployment.yaml
   - storage.yaml
   - ingress.yaml
+  - service.yaml
   - service-account.yaml
 
