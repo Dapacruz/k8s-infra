@@ -1,0 +1,66 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: cloudflare
+    namespace: cert-manager
+spec:
+    acme:
+        email: ENC[AES256_GCM,data:+jt1JQZ7EcThUF7kO8DQpMW9iABoI74ADlBo,iv:SpqIZiz8KxI/Tv387ODRF8V3hPcABVcweKOUl/fMznM=,tag:sMq4JkoSTNthVa6y6eNMgQ==,type:str]
+        server: https://acme-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+            name: cloudflare-clusterissuer-account-key
+        solvers:
+            - dns01:
+                cloudflare:
+                    apiTokenSecretRef:
+                        name: cloudflare
+                        key: ENC[AES256_GCM,data:Zwh5uEbluKTh,iv:iVG1mOuzCRmHhZXZZMgDqX6pf+2AoJNxSV+NOsVycLA=,tag:3JDcnHLBBD9iWsJu+DJGug==,type:str]
+sops:
+    age:
+        - recipient: age1f9ndju9c2tp8vae2lkwrenx8sk4f0zk236wlzufq8hg302gkqatsalpapg
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBaS2x2aDEzeTlzcGVpZ3Yx
+            dVVyL0NzRW5rV3c4V0hRelNtNUxYZnRVUFNnCmplNEdUaGtoMWR6YlZKMm5nNTFk
+            RUl4ckRNNjlaTkdjNzV2ZFBNVXVFa2MKLS0tIG1UeGtudjRCNG14RDUwWEVQb3Vs
+            azZHVHovTVI5YTE4UkJrc0V5M3dUOE0KTkW1riIxBQ2MsXt42vYWO22SRStYk7JP
+            MHKGFfQxbpmocr+PQyOsZLJrfPFP+C3Sbi8R3K020uWgLvuourKz+Q==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-05-18T21:52:02Z"
+    mac: ENC[AES256_GCM,data:fIN8phTWB8TCbOkjuI8LfkXBUBKY3Ap+OHIggLpqRNgPmZenjfEpe8Dzy1VqBtVbbIpnRXMfJOTjdANScVrzsh+3O1TO3XpSGCUO9PcZroE2qLmjxVuv3D6t/l8bjbAu7VqgjBCmntJVhi/Qi4RVF5ke/BSEOWM17wHqnr9qxbg=,iv:wcoX5tExJ9+6Wl+WWMN7x2idL0z1ztEp2LGcfV+XoCA=,tag:YHuC0BPN905pV5eqeAul9A==,type:str]
+    encrypted_regex: ^(email|key)$
+    version: 3.10.2
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+    name: cloudflare-staging
+    namespace: cert-manager
+spec:
+    acme:
+        email: ENC[AES256_GCM,data:h9h7NRVQNoIkRT0eDKwMWZ85tYGDK5DeNYmC,iv:EIOyEFUC1ay5d3mJO8XYZWT70F65CQ87yQXHmyOGxys=,tag:EM1Lsmc4OaLn2D7vPR3BIg==,type:str]
+        server: https://acme-staging-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+            name: cloudflare-clusterissuer-account-key
+        solvers:
+            - dns01:
+                cloudflare:
+                    apiTokenSecretRef:
+                        name: cloudflare
+                        key: ENC[AES256_GCM,data:OxrCoWVTt6ft,iv:4/5nLgni0ipQy+7gcwy04967oiZryw36YqbNzjq/WeY=,tag:JEg+MXzQmWi0ijQu5lfFsQ==,type:str]
+sops:
+    age:
+        - recipient: age1f9ndju9c2tp8vae2lkwrenx8sk4f0zk236wlzufq8hg302gkqatsalpapg
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBaS2x2aDEzeTlzcGVpZ3Yx
+            dVVyL0NzRW5rV3c4V0hRelNtNUxYZnRVUFNnCmplNEdUaGtoMWR6YlZKMm5nNTFk
+            RUl4ckRNNjlaTkdjNzV2ZFBNVXVFa2MKLS0tIG1UeGtudjRCNG14RDUwWEVQb3Vs
+            azZHVHovTVI5YTE4UkJrc0V5M3dUOE0KTkW1riIxBQ2MsXt42vYWO22SRStYk7JP
+            MHKGFfQxbpmocr+PQyOsZLJrfPFP+C3Sbi8R3K020uWgLvuourKz+Q==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-05-18T21:52:02Z"
+    mac: ENC[AES256_GCM,data:fIN8phTWB8TCbOkjuI8LfkXBUBKY3Ap+OHIggLpqRNgPmZenjfEpe8Dzy1VqBtVbbIpnRXMfJOTjdANScVrzsh+3O1TO3XpSGCUO9PcZroE2qLmjxVuv3D6t/l8bjbAu7VqgjBCmntJVhi/Qi4RVF5ke/BSEOWM17wHqnr9qxbg=,iv:wcoX5tExJ9+6Wl+WWMN7x2idL0z1ztEp2LGcfV+XoCA=,tag:YHuC0BPN905pV5eqeAul9A==,type:str]
+    encrypted_regex: ^(email|key)$
+    version: 3.10.2
+
