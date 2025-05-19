@@ -11,4 +11,5 @@ spec:
     kind: Rule
     services:
     - name: linkding
+      port: 9090
 
