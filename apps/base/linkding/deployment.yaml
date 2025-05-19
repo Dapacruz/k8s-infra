@@ -6,14 +6,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: linkding
+      app.kubernetes.io/name: linkding
   template:
     metadata:
       labels:
-        app: linkding
+        app.kubernetes.io/name: linkding
     spec:
       serviceAccountName: linkding
       automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
       securityContext:
         fsGroup: 33
         runAsUser: 33
@@ -22,7 +24,9 @@ spec:
       - name: linkding
         image: sissbruecker/linkding:1.40.0
         ports:
-        - containerPort: 9090
+          - name: http
+            containerPort: 9090
+            protocol: TCP
         securityContext:
           allowPrivilegeEscalation: false
         volumeMounts:
