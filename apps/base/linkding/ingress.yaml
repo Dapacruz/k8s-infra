@@ -5,7 +5,7 @@ metadata:
   namespace: linkding
 spec:
   entryPoints:
-  - web
+  - websecure
   routes:
   - match: Host(`linkding.staging.cruznet.io`)
     kind: Rule
