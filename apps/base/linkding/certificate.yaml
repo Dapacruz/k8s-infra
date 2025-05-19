@@ -4,7 +4,7 @@ metadata:
   name: linkding
   namespace: linkding
 spec:
-  secretName: linkding
+  secretName: linkding-cert
   issuerRef:
     name: cloudflare-staging
     kind: ClusterIssuer
