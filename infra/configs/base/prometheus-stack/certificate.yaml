@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana
+  namespace: prometheus-stack
+spec:
+  secretName: grafana-cert
+  issuerRef:
+    name: cloudflare
+    kind: ClusterIssuer
+  dnsNames:
+  - grafana.staging.cruznet.io
+

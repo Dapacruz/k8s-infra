@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: prometheus-stack
 resources:
-  - cert-manager
-  - premetheus-stack
+  - ../../base/prometheus-stack
+
 
