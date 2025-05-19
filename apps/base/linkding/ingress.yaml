@@ -15,5 +15,5 @@ spec:
       namespace: linkding
       port: 9090
   tls:
-    secretName: linking-cert
+    secretName: linkding-cert
 
