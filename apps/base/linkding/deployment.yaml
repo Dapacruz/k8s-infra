@@ -38,7 +38,7 @@ spec:
           mountPath: /mnt/media
           subPath: Configs/Linkding
         - name: linkding-tv
-          mountPath: /mnt/media
+          mountPath: /mnt/tv
           subPath: TV
       volumes:
       - name: linkding-data
