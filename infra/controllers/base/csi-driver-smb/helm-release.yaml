@@ -14,10 +14,6 @@ spec:
                 name: csi-driver-smb
                 namespace: kube-system
             interval: 12h
-    # install:
-    #     crds: Create
-    # upgrade:
-    #     crds: CreateReplace
     driftDetection:
         mode: enabled
     values:
@@ -35,17 +31,7 @@ spec:
         node: csi-smb2-node-sa
 
       node:
+        name: csi-smb2-node
         livenessProbe:
           healthPort: 29643
-
-      # crds:
-      #   enabled: true
-      extraArgs:
-        - --set node.name=csi-smb2-node
-      #   - --set driver.name="smb2.csi.k8s.io"
-      #   - --set controller.name="csi-smb2-controller"
-      #   - --set rbac.name=smb2
-      #   - --set serviceAccount.controller=csi-smb2-controller-sa
-      #   - --set serviceAccount.node=csi-smb2-node-sa
-      #   - --set node.livenessProbe.healthPort=39643
 
