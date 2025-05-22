@@ -5,4 +5,5 @@ resources:
   - prometheus-stack
   - traefik
   - cert-manager
+  - csi-driver-smb
 
