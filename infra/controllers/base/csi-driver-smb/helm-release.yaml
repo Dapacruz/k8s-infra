@@ -7,11 +7,11 @@ spec:
     interval: 30m
     chart:
         spec:
-            chart: csi-driver-smb2
+            chart: csi-driver-smb
             version: v1.9.0
             sourceRef:
                 kind: HelmRepository
-                name: csi-driver-smb2
+                name: csi-driver-smb
                 namespace: kube-system
             interval: 12h
     # install:
