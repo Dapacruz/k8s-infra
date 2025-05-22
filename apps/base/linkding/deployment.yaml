@@ -36,6 +36,7 @@ spec:
           mountPath: /etc/linkding/data
         - name: linkding-media
           mountPath: /mnt/media
+          subPath: Configs/Linkding
       volumes:
       - name: linkding-data
         persistentVolumeClaim:
