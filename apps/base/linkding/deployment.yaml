@@ -14,10 +14,10 @@ spec:
       labels:
         app.kubernetes.io/name: linkding
     spec:
-      serviceAccountName: linkding
-      automountServiceAccountToken: true
-      dnsPolicy: ClusterFirst
-      enableServiceLinks: true
+      # serviceAccountName: linkding
+      # automountServiceAccountToken: true
+      # dnsPolicy: ClusterFirst
+      # enableServiceLinks: true
       # securityContext:
       #   fsGroup: 33
       #   runAsUser: 33
