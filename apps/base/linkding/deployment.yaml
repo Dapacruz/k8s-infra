@@ -32,22 +32,17 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
         volumeMounts:
-        - name: linkding-data
+        - name: media
           mountPath: /etc/linkding/data
-        - name: linkding-media
-          mountPath: /config
-          subPath: Configs/Linkding
-        - name: linkding-media
+          subPath: Configs/Linkding/Data
+        - name: media
           mountPath: /tv
           subPath: TV
-        - name: linkding-media
+        - name: media
           mountPath: /movies
           subPath: Movies
       volumes:
-      - name: linkding-data
-        persistentVolumeClaim:
-          claimName: data
-      - name: linkding-media
+      - name: media
         persistentVolumeClaim:
           claimName: media
 
