@@ -13,6 +13,13 @@ patches:
       path: /spec/routes/0/match
       value: Host(`linkding.staging.cruznet.io`)
 - target:
+    kind: IngressRoute
+    name: linkding
+  patch: |-
+    - op: replace
+      path: /spec/routes/0/services/0/namespace
+      value: linkding-staging
+- target:
     kind: Certificate
     name: linkding
   patch: |-
