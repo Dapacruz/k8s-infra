@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: linkding-cert
   issuerRef:
-    name: cloudflare-staging
+    name: cloudflare
     kind: ClusterIssuer
   dnsNames:
   - linkding.staging.cruznet.io
