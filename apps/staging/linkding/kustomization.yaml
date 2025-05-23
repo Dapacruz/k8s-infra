@@ -4,12 +4,12 @@ namespace: linkding-staging
 resources:
   - ../../base/linkding
 
-patches:
-- target:
-    kind: IngressRoute
-    name: linkding
-  patch: |-
-    - op: replace
-      path: /spec/routes/0/match
-      value: Host(`linkding.staging.cruznet.io`)
+# patches:
+# - target:
+#     kind: IngressRoute
+#     name: linkding
+#   patch: |-
+#     - op: replace
+#       path: /spec/routes/0/match
+#       value: Host(`linkding.staging.cruznet.io`)
 
