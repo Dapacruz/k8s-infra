@@ -49,6 +49,5 @@ spec:
           claimName: linkding-data-pvc
       - name: linkding-media
         persistentVolumeClaim:
-          namespace: kube-system
           claimName: pvc-smb-media
 
