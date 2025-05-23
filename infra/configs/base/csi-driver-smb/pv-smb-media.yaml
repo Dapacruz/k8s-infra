@@ -16,7 +16,7 @@ spec:
   csi:
     driver: smb2.csi.k8s.io
     readOnly: false
-    volumeHandle: nas.cruznet.io##Media
+    volumeHandle: nas.cruznet.io/Media
     volumeAttributes:
       source: //nas.cruznet.io/Media
     nodeStageSecretRef:
