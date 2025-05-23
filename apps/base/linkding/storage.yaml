@@ -8,18 +8,4 @@ spec:
   resources:
     requests:
       storage: 1Gi
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: linkding-media-pvc
-  namespace: linkding
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 10Gi
-  volumeName: pv-smb-media
-  storageClassName: ""
 
