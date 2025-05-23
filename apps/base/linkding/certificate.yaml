@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: linkding
-  namespace: linkding
+  namespace: linkding-staging
 spec:
   secretName: linkding-cert
   issuerRef:
