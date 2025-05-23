@@ -9,7 +9,7 @@ patches:
     kind: IngressRoute
     name: linkding
   patch: |-
-    - op: merge
+    - op: replace
       path: /spec/routes/0/match
       value: Host(`linkding.staging.cruznet.io`)
 
