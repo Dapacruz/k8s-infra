@@ -2,12 +2,12 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: linkding
-  namespace: linkding-staging
+  namespace: linkding
 spec:
   secretName: linkding-cert
   issuerRef:
-    name: cloudflare
+    name: cloudflare-staging
     kind: ClusterIssuer
   dnsNames:
-  - linkding.staging.cruznet.io
+  - linkding.cruznet.io
 
