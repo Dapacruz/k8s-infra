@@ -34,7 +34,7 @@ spec:
         volumeMounts:
         - name: linkding-data
           mountPath: /etc/linkding/data
-        - name: linkding-config
+        - name: linkding-media
           mountPath: /config
           subPath: Configs/Linkding
         - name: linkding-media
