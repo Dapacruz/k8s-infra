@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`linkding.staging.cruznet.io`)
+  - match: Host(`linkding.cruznet.io`)
     kind: Rule
     services:
     - name: linkding
