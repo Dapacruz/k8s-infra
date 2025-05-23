@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - cert-manager
   - prometheus-stack
-  # - csi-driver-smb
+  - csi-driver-smb
 
