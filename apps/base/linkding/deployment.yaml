@@ -18,10 +18,10 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      securityContext:
-        fsGroup: 33
-        runAsUser: 33
-        runAsGroup: 33
+      # securityContext:
+      #   fsGroup: 33
+      #   runAsUser: 33
+      #   runAsGroup: 33
       containers:
       - name: linkding
         image: sissbruecker/linkding:1.40.0
@@ -29,8 +29,8 @@ spec:
           - name: http
             containerPort: 9090
             protocol: TCP
-        securityContext:
-          allowPrivilegeEscalation: false
+        # securityContext:
+        #   allowPrivilegeEscalation: false
         volumeMounts:
         - name: media
           mountPath: /etc/linkding/data
