@@ -37,17 +37,16 @@ spec:
         - name: linkding-config
           mountPath: /config
           subPath: Configs/Linkding
-        - name: linkding-tv
+        - name: linkding-data
           mountPath: /tv
           subPath: TV
-        - name: linkding-movies
+        - name: linkding-data
           mountPath: /movies
           subPath: Movies
       volumes:
       - name: linkding-data
         persistentVolumeClaim:
-          claimName: linkding-data-pvc
-      - name: linkding-media
+      - name: linkding-data
         persistentVolumeClaim:
           namespace: kube-system
           claimName: pvc-smb-media
