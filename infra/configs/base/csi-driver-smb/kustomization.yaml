@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: kube-system
 resources:
   - secret-media.yaml
-  - pv-smb-media.yaml
-  - pvc-media-linkding.yaml
+  # - pv-smb-media.yaml
+  # - pvc-media-linkding.yaml
 

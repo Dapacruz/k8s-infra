@@ -49,5 +49,5 @@ spec:
           claimName: linkding-data-pvc
       - name: linkding-media
         persistentVolumeClaim:
-          claimName: pvc-smb-media
+          claimName: media
 
