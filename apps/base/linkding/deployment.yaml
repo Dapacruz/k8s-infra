@@ -31,18 +31,12 @@ spec:
             protocol: TCP
         # securityContext:
         #   allowPrivilegeEscalation: false
-      #   volumeMounts:
-      #   - name: media
-      #     mountPath: /etc/linkding/data
-      #     subPath: Configs/Linkding/Data
-      #   - name: media
-      #     mountPath: /tv
-      #     subPath: TV
-      #   - name: media
-      #     mountPath: /movies
-      #     subPath: Movies
-      # volumes:
-      # - name: media
-      #   persistentVolumeClaim:
-      #     claimName: media
+        volumeMounts:
+        - name: media
+          mountPath: /etc/linkding/data
+          subPath: Configs/Linkding/Data
+      volumes:
+      - name: media
+        persistentVolumeClaim:
+          claimName: media
 
