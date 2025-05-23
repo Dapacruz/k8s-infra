@@ -14,14 +14,14 @@ spec:
       labels:
         app.kubernetes.io/name: linkding
     spec:
-      # serviceAccountName: linkding
-      # automountServiceAccountToken: true
-      # dnsPolicy: ClusterFirst
-      # enableServiceLinks: true
-      # securityContext:
-      #   fsGroup: 33
-      #   runAsUser: 33
-      #   runAsGroup: 33
+      serviceAccountName: linkding
+      automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      securityContext:
+        fsGroup: 33
+        runAsUser: 33
+        runAsGroup: 33
       containers:
       - name: linkding
         image: sissbruecker/linkding:1.40.0
@@ -29,14 +29,14 @@ spec:
           - name: http
             containerPort: 9090
             protocol: TCP
-        # securityContext:
-        #   allowPrivilegeEscalation: false
-        volumeMounts:
-        - name: media
-          mountPath: /etc/linkding/data
-          subPath: Configs/Linkding/Data
-      volumes:
-      - name: media
-        persistentVolumeClaim:
-          claimName: media
+        securityContext:
+          allowPrivilegeEscalation: false
+      #   volumeMounts:
+      #   - name: media
+      #     mountPath: /etc/linkding/data
+      #     subPath: Configs/Linkding/Data
+      # volumes:
+      # - name: media
+      #   persistentVolumeClaim:
+      #     claimName: media
 
