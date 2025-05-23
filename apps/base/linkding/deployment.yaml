@@ -46,6 +46,7 @@ spec:
       volumes:
       - name: linkding-data
         persistentVolumeClaim:
+          claimName: linkding-data-pvc
       - name: linkding-media
         persistentVolumeClaim:
           namespace: kube-system
