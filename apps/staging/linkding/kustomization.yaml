@@ -6,7 +6,7 @@ resources:
 
 patches:
 - target:
-    kind: Ingress
+    kind: IngressRoute
     name: linkding
   patch: |-
     - op: replace
