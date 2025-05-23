@@ -18,7 +18,7 @@ spec:
     readOnly: false
     volumeHandle: nas.cruznet.io##Media
     volumeAttributes:
-      source: //172.31.1.23/Media
+      source: //nas.cruznet.io/Media
     nodeStageSecretRef:
       name: smb-creds-media
       namespace: kube-system
