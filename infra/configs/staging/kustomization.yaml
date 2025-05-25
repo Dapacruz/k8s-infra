@@ -4,5 +4,4 @@ resources:
   - cert-manager
   - prometheus-stack
   - csi-driver-smb
-  - cilium
 
