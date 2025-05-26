@@ -8,7 +8,5 @@ spec:
   interfaces:
     - '^eth[0-9]+'
   loadBalancerIPs: true
-
-  # IMPORTANT: if externalIPs is desired, externalIPs.enabled=true must be set in values.yaml
-  # externalIPs: true
+  externalIPs: true
 
