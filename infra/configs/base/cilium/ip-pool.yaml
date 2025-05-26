@@ -1,8 +1,11 @@
 apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
-  name: default-pool
+  name: traefik-pool
 spec:
   blocks:
-  - cidr: "172.31.1.248/29"
+  - start: "172.31.1.248"
+  serviceSelector:
+    matchLabels:
+      "io.kubernetes.service.name": "traefik"
 
