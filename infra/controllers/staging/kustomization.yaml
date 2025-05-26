@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - renovate
   - prometheus-stack
-  - traefik
-  - cert-manager
+  # - traefik
+  # - cert-manager
   - csi-driver-smb
 
