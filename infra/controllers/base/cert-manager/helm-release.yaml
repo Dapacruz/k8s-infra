@@ -21,6 +21,7 @@ spec:
     driftDetection:
         mode: enabled
     values:
+      installCRDs: true
       crds:
         enabled: true
       extraArgs:
