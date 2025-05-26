@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: grafana-cert
   issuerRef:
-    name: cloudflare
+    name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
   - grafana.staging.cruznet.io

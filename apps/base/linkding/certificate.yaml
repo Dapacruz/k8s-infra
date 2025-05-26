@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: linkding-cert
   issuerRef:
-    name: cloudflare
+    name: letsencrypt
     kind: ClusterIssuer
   dnsNames:
   - linkding.cruznet.io
