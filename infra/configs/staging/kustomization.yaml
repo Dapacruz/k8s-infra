@@ -6,4 +6,5 @@ resources:
   - csi-driver-smb
   - cilium
   - vault
+  - external-secrets
 
