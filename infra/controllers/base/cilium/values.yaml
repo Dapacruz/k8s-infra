@@ -1,6 +1,9 @@
 # ipam:
 #   mode: kubernetes
 
+operator:
+  replicas: 1
+
 kubeProxyReplacement: true
 
 # securityContext:
