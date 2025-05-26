@@ -13,7 +13,7 @@ spec:
     - name: vault
       kind: Service
       namespace: vault
-      port: 8201
+      port: 8200
   tls:
     secretName: vault-cert
 
