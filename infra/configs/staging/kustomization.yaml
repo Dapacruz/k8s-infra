@@ -5,4 +5,5 @@ resources:
   - prometheus-stack
   - csi-driver-smb
   - cilium
+  - vault
 
