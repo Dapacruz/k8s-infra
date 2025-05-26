@@ -1,47 +1,46 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-    name: prometheus-stack
-    namespace: prometheus-stack
+  name: prometheus-stack
+  namespace: prometheus-stack
 spec:
-    interval: 30m
-    chart:
-        spec:
-            chart: kube-prometheus-stack
-            version: 66.2.2
-            sourceRef:
-                kind: HelmRepository
-                name: prometheus-stack
-                namespace: prometheus-stack
-            interval: 12h
-    install:
-        crds: Create
-    upgrade:
-        crds: CreateReplace
-    driftDetection:
-        mode: enabled
-        ignore:
-            # Ignore "validated" annotation
-            - paths:
-                - /metadata/annotations/prometheus-operator-validated
-              target:
-                kind: PrometheusRule
-    values:
-        grafana:
-            adminPassword: ENC[AES256_GCM,data:zEb+MLwST68oAza/sly9rYcMYGg=,iv:cItSMAz9ME60ukYSOWp1tHCPIeQoG7rjXtQOmLRisyc=,tag:POlidqSdSnM8ETF3Efng7A==,type:str]
+  interval: 30m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 66.2.2
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-stack
+        namespace: prometheus-stack
+      interval: 12h
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+    ignore:
+    - paths:
+      - /metadata/annotations/prometheus-operator-validated
+      target:
+        kind: PrometheusRule
+  values:
+    grafana:
+      adminPassword: ENC[AES256_GCM,data:zEb+MLwST68oAza/sly9rYcMYGg=,iv:cItSMAz9ME60ukYSOWp1tHCPIeQoG7rjXtQOmLRisyc=,tag:POlidqSdSnM8ETF3Efng7A==,type:str]
 sops:
-    age:
-        - recipient: age1f9ndju9c2tp8vae2lkwrenx8sk4f0zk236wlzufq8hg302gkqatsalpapg
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA0ejlRaXc3TWFrNDlyMzNm
-            dm1qUnhUMFJ5WnJLUm10V3FZRG16dnNOZWtNCjAraGUwMy9ab3hGYUplQ3Q5NzZr
-            eW1QeHlSaEpGSGtXY2Jna2hPWWdSTjAKLS0tIHQ0Z2tDLzlIUWNsUk1ZTHVaajkv
-            OUtXUi9IVVhPYW9vUk50SzNCRzNHUDAKdg3OTnZi5AX9dsZOUja+sMrGdwyPfmY9
-            F3PpJOW8i8zmaSyqdXtsS/ZnRRNjAZIV8oJa040nzoCrEXwjC4TG3A==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-05-18T18:47:02Z"
-    mac: ENC[AES256_GCM,data:cloRWvIe8JgWyCe+8cIREntFip4DqxFZebMS8VSN2W9y79+7VWZSpIUHoZJQzB+wGm5AimB2TPRWEvKLjqfRU14Y6wmjtaN+1bVQmvks1iRYVlnrzwXdP93RrypsSENEPQ/acbh2s+twK6IOV0G3nl07kGJqj3KYZIiYUR0jDZw=,iv:rQ5aHokZqd45qjVnDP67020WI6MqGtEbb15F0EL0K/Q=,tag:X3FA2DHNUiUrNr787I71Jw==,type:str]
-    encrypted_regex: ^adminPassword$
-    version: 3.10.2
+  age:
+  - recipient: age1f9ndju9c2tp8vae2lkwrenx8sk4f0zk236wlzufq8hg302gkqatsalpapg
+    enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA0ejlRaXc3TWFrNDlyMzNm
+      dm1qUnhUMFJ5WnJLUm10V3FZRG16dnNOZWtNCjAraGUwMy9ab3hGYUplQ3Q5NzZr
+      eW1QeHlSaEpGSGtXY2Jna2hPWWdSTjAKLS0tIHQ0Z2tDLzlIUWNsUk1ZTHVaajkv
+      OUtXUi9IVVhPYW9vUk50SzNCRzNHUDAKdg3OTnZi5AX9dsZOUja+sMrGdwyPfmY9
+      F3PpJOW8i8zmaSyqdXtsS/ZnRRNjAZIV8oJa040nzoCrEXwjC4TG3A==
+      -----END AGE ENCRYPTED FILE-----
+  lastmodified: "2025-05-18T18:47:02Z"
+  mac: ENC[AES256_GCM,data:cloRWvIe8JgWyCe+8cIREntFip4DqxFZebMS8VSN2W9y79+7VWZSpIUHoZJQzB+wGm5AimB2TPRWEvKLjqfRU14Y6wmjtaN+1bVQmvks1iRYVlnrzwXdP93RrypsSENEPQ/acbh2s+twK6IOV0G3nl07kGJqj3KYZIiYUR0jDZw=,iv:rQ5aHokZqd45qjVnDP67020WI6MqGtEbb15F0EL0K/Q=,tag:X3FA2DHNUiUrNr787I71Jw==,type:str]
+  encrypted_regex: ^adminPassword$
+  version: 3.10.2
 
