@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: linkding-cert
   issuerRef:
-    name: letsencrypt-prod
+    name: letsencrypt-staging
     kind: ClusterIssuer
   dnsNames:
   - linkding.cruznet.io
