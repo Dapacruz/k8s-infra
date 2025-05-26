@@ -4,6 +4,6 @@ resources:
   - renovate
   # - prometheus-stack
   - traefik
-  # - cert-manager
+  - cert-manager
   - csi-driver-smb
 
