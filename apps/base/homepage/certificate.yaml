@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: homepage-cert
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
   - homepage.cruznet.io
