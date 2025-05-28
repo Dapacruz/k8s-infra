@@ -1,0 +1,75 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:best-practices'
+  ],
+  // Improve overview of open PRs (caused by Renovate Bot)
+  dependencyDashboard: true,
+  dependencyDashboardTitle: 'Renovate Dashboard',
+  dependencyDashboardAutoclose: true,
+  kubernetes: {
+    fileMatch: [
+      '\\.yaml$'
+    ]
+  },
+  ignoreDeps: [
+    'ghcr.io/fluxcd/helm-controller',
+    'ghcr.io/fluxcd/image-automation-controller',
+    'ghcr.io/fluxcd/image-reflector-controller',
+    'ghcr.io/fluxcd/kustomize-controller',
+    'ghcr.io/fluxcd/notification-controller',
+    'ghcr.io/fluxcd/source-controller',
+  ],
+  assignees: [
+    '@Dapacruz',
+  ],
+  commitBody: 'Signed-off-by: Dapacruz',
+  packageRules: [
+    // Avoid spam via automatic merging
+    {
+      description: 'Automatically merge minor and patch-level updates',
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+        'digest'
+      ],
+      automerge: true,
+      automergeType: 'branch'
+    },
+    // Keep up to date with Renovate Bot's development
+    {
+      description: 'Disables the creation of branches/PRs for any minor/patch updates etc. of Renovate bot',
+      matchPaths: [
+        'renovate-update-notification/Dockerfile'
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+        'pin',
+        'digest',
+        'rollback'
+      ],
+      enabled: false
+    },
+    {
+      description: 'Causes the bot to create a PR (and thus, an email notification), whenever there is a new major Renovate version',
+      matchPaths: [
+        'renovate-update-notification/Dockerfile'
+      ],
+      matchUpdateTypes: [
+        'major'
+      ],
+      automerge: true
+    }
+  ],
+  // Avoid spam via scheduling
+  schedule: [
+    'after 10pm every weekday',
+    'before 5am every weekday',
+    'every weekend'
+  ],
+  // Fix default branch rebasing - always rebase still-open temporary branches, whenever its source branch has changed
+  rebaseWhen: 'behind-base-branch',
+  // Handle pulled dependency updates
+  rollbackPrs: true
+}
