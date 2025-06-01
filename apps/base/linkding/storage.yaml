@@ -8,4 +8,38 @@ spec:
   resources:
     requests:
       storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: linkding
+spec:
+  storageClassName: longhorn-static
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: linkding
+    volumeAttributes:
+      dataLocality: best-effort
+      numberOfReplicas: "1"
+      staleReplicaTimeout: "30"
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: "5Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: linkding-claim
+spec:
+  storageClassName: longhorn-static
+  volumeName: linkding
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "5Gi"
 
