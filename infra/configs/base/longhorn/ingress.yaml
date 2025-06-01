@@ -1,0 +1,19 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: longhorn
+  namespace: longhorn-system
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`longhorn.staging.cruznet.io`)
+    kind: Rule
+    services:
+    - name: longhorn-frontend
+      kind: Service
+      namespace: longhorn-system
+      port: 80
+  tls:
+    secretName: longhorn-cert
+
