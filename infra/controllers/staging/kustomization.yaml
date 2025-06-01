@@ -9,5 +9,5 @@ resources:
   - cilium
   - vault
   - external-secrets
-  # - longhorn
+  - longhorn
 
