@@ -19,7 +19,7 @@ spec:
   csi:
     driver: driver.longhorn.io
     fsType: ext4
-    volumeHandle: linkding
+    volumeHandle: linkding-data
     volumeAttributes:
       dataLocality: best-effort
       numberOfReplicas: "1"
@@ -35,7 +35,7 @@ metadata:
   name: linkding-claim
 spec:
   storageClassName: longhorn-static
-  volumeName: linkding
+  volumeName: linkding-data
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
