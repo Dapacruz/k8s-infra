@@ -34,8 +34,13 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /etc/linkding/data
+        - name: linkding
+          mountPath: /var/data
       volumes:
       - name: data
+        persistentVolumeClaim:
+          claimName: data
+      - name: linkding
         persistentVolumeClaim:
           claimName: linkding-claim
 
