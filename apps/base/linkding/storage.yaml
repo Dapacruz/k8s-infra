@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: linkding
+  name: linkding-data
 spec:
   storageClassName: longhorn-static
   persistentVolumeReclaimPolicy: Retain
