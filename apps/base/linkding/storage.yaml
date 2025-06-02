@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: linkding-data
 spec:
-  storageClassName: longhorn-static
+  storageClassName: linkding-data
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: driver.longhorn.io
@@ -23,7 +23,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: linkding-claim
 spec:
-  storageClassName: longhorn-static
+  storageClassName: linkding-data
   volumeName: linkding-data
   volumeMode: Filesystem
   accessModes:
