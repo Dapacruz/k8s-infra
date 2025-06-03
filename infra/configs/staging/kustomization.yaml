@@ -5,7 +5,7 @@ resources:
   - prometheus-stack
   - csi-driver-smb
   - cilium
-  # - vault
+  - vault
   - external-secrets
   - longhorn
 
