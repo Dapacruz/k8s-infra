@@ -4,6 +4,7 @@ resources:
   - namespace.yaml
   - helm-repository.yaml
   - helm-release.yaml
+  - storage.yaml
 
 configMapGenerator:
 - name: vault-values
