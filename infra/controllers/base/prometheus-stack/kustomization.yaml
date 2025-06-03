@@ -5,3 +5,11 @@ resources:
   - helm-repository.yaml
   - helm-release.yaml
 
+configMapGenerator:
+- name: prometheus-stack-values
+  files:
+  - values.yaml=values.yaml
+
+configurations:
+- kustomize-config.yaml
+
