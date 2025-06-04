@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: alert-manager-data
+spec:
+  storageClassName: alert-manager-data
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: alert-manager-data
+    volumeAttributes:
+      dataLocality: best-effort
+      numberOfReplicas: "1"
+      staleReplicaTimeout: "30"
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    # storage: "50Gi"
+    storage: "25Gi"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: grafana-data
+spec:
+  storageClassName: grafana-data
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: grafana-data
+    volumeAttributes:
+      dataLocality: best-effort
+      numberOfReplicas: "1"
+      staleReplicaTimeout: "30"
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: "20Gi"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-data
+spec:
+  storageClassName: prometheus-data
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: prometheus-data
+    volumeAttributes:
+      dataLocality: best-effort
+      numberOfReplicas: "1"
+      staleReplicaTimeout: "30"
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: "25Gi"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: thanos-ruler-data
+spec:
+  storageClassName: thanos-ruler-data
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: thanos-ruler-data
+    volumeAttributes:
+      dataLocality: best-effort
+      numberOfReplicas: "1"
+      staleReplicaTimeout: "30"
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: "25Gi"
+

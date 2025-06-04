@@ -1019,15 +1019,16 @@ alertmanager:
     ## Storage is the definition of how storage will be used by the Alertmanager instances.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
     ##
-    storage: {}
-    # volumeClaimTemplate:
-    #   spec:
-    #     storageClassName: gluster
-    #     accessModes: ["ReadWriteOnce"]
-    #     resources:
-    #       requests:
-    #         storage: 50Gi
-    #   selector: {}
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: alert-manager-data
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              # storage: 50Gi
+              storage: 25Gi
+      selector: {}
 
 
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
@@ -1292,15 +1293,15 @@ grafana:
 
   # # To make Grafana persistent (Using Statefulset)
   # #
-  # persistence:
-  #   enabled: true
-  #   type: sts
-  #   storageClassName: "storageClassName"
-  #   accessModes:
-  #     - ReadWriteOnce
-  #   size: 20Gi
-  #   finalizers:
-  #     - kubernetes.io/pvc-protection
+  persistence:
+    enabled: true
+    type: sts
+    storageClassName: grafana-data
+    accessModes:
+      - ReadWriteOnce
+    size: 20Gi
+    finalizers:
+      - kubernetes.io/pvc-protection
 
   serviceAccount:
     create: true
@@ -4263,17 +4264,18 @@ prometheus:
     ## Prometheus StorageSpec for persistent data
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
     ##
-    storageSpec: {}
+    storageSpec:
     ## Using PersistentVolumeClaim
     ##
-    #  volumeClaimTemplate:
-    #    spec:
-    #      storageClassName: gluster
-    #      accessModes: ["ReadWriteOnce"]
-    #      resources:
-    #        requests:
-    #          storage: 50Gi
-    #    selector: {}
+      volumeClaimTemplate:
+        spec:
+          storageClassName: prometheus-data
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              # storage: 50Gi
+              storage: 25Gi
+        selector: {}
 
     ## Using tmpfs volume
     ##
@@ -5081,15 +5083,16 @@ thanosRuler:
     ## Storage is the definition of how storage will be used by the ThanosRuler instances.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
     ##
-    storage: {}
-    # volumeClaimTemplate:
-    #   spec:
-    #     storageClassName: gluster
-    #     accessModes: ["ReadWriteOnce"]
-    #     resources:
-    #       requests:
-    #         storage: 50Gi
-    #   selector: {}
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: thanos-ruler-data
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              # storage: 50Gi
+              storage: 25Gi
+        selector: {}
 
     ## AlertmanagerConfig define configuration for connecting to alertmanager.
     ## Only available with Thanos v0.10.0 and higher. Maps to the alertmanagers.config Thanos Ruler arg.
