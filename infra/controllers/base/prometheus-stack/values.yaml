@@ -4269,15 +4269,16 @@ prometheus:
         metadata:
           name: prometheus-pvc
         spec:
-          storageClassName: "prometheus-data"
+          volumeName: prometheus-data
+          storageClassName: prometheus-data
           accessModes: ["ReadWriteOnce"]
           # resources:
           #   requests:
           #     # storage: 50Gi
           #     storage: 25Gi
-          selector:
-            matchLabels:
-              app: prometheus
+          # selector:
+          #   matchLabels:
+          #     app: prometheus
 
     ## Using tmpfs volume
     ##
