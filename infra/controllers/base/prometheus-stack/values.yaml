@@ -1028,10 +1028,6 @@ alertmanager:
             requests:
               # storage: 50Gi
               storage: 25Gi
-          selector:
-            matchLabels:
-              app: alert-manager
-
 
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
     ##
@@ -4270,13 +4266,15 @@ prometheus:
     ## Using PersistentVolumeClaim
     ##
       volumeClaimTemplate:
+        metadata:
+          name: prometheus-pvc
         spec:
-          storageClassName: prometheus-data
+          storageClassName: "prometheus-data"
           accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              # storage: 50Gi
-              storage: 25Gi
+          # resources:
+          #   requests:
+          #     # storage: 50Gi
+          #     storage: 25Gi
           selector:
             matchLabels:
               app: prometheus
