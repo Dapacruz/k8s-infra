@@ -5,7 +5,7 @@ metadata:
   labels:
     app: alert-manager
 spec:
-  storageClassName: alert-manager-data
+  storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: driver.longhorn.io
@@ -50,34 +50,12 @@ metadata:
   labels:
     app: prometheus
 spec:
-  storageClassName: prometheus-data
+  storageClassName: ""
   persistentVolumeReclaimPolicy: Retain
   csi:
     driver: driver.longhorn.io
     fsType: ext4
     volumeHandle: prometheus-data
-    volumeAttributes:
-      dataLocality: best-effort
-      numberOfReplicas: "1"
-      staleReplicaTimeout: "30"
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: "25Gi"
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: thanos-ruler-data
-  labels:
-    app: thanos-ruler
-spec:
-  storageClassName: thanos-ruler-data
-  persistentVolumeReclaimPolicy: Retain
-  csi:
-    driver: driver.longhorn.io
-    fsType: ext4
-    volumeHandle: thanos-ruler-data
     volumeAttributes:
       dataLocality: best-effort
       numberOfReplicas: "1"

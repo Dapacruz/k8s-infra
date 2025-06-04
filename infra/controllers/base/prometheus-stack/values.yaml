@@ -1021,13 +1021,18 @@ alertmanager:
     ##
     storage:
       volumeClaimTemplate:
+        metadata:
+          name: alert-manager-claim
         spec:
-          storageClassName: alert-manager-data
+          storageClassName: ""
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
               # storage: 50Gi
               storage: 25Gi
+          selector:
+            matchLabels:
+              app: alert-manager
 
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
     ##
@@ -4263,22 +4268,21 @@ prometheus:
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
     ##
     storageSpec:
-    ## Using PersistentVolumeClaim
-    ##
+      ## Using PersistentVolumeClaim
+      ##
       volumeClaimTemplate:
         metadata:
-          name: prometheus-pvc
+          name: prometheus-claim
         spec:
-          volumeName: prometheus-data
-          storageClassName: prometheus-data
+          storageClassName: ""
           accessModes: ["ReadWriteOnce"]
-          # resources:
-          #   requests:
-          #     # storage: 50Gi
-          #     storage: 25Gi
-          # selector:
-          #   matchLabels:
-          #     app: prometheus
+          resources:
+            requests:
+              # storage: 50Gi
+              storage: 25Gi
+          selector:
+            matchLabels:
+              app: prometheus
 
     ## Using tmpfs volume
     ##
@@ -5086,18 +5090,20 @@ thanosRuler:
     ## Storage is the definition of how storage will be used by the ThanosRuler instances.
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/platform/storage.md
     ##
-    storage:
-      volumeClaimTemplate:
-        spec:
-          storageClassName: thanos-ruler-data
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              # storage: 50Gi
-              storage: 25Gi
-          selector:
-            matchLabels:
-              app: thanos-ruler
+    storage: {}
+      # volumeClaimTemplate:
+      #   metadata:
+      #     name: thanos-ruler-claim
+      #   spec:
+      #     storageClassName: ""
+      #     accessModes: ["ReadWriteOnce"]
+      #     resources:
+      #       requests:
+      #         # storage: 50Gi
+      #         storage: 25Gi
+      #     selector:
+      #       matchLabels:
+      #         app: thanos-ruler
 
     ## AlertmanagerConfig define configuration for connecting to alertmanager.
     ## Only available with Thanos v0.10.0 and higher. Maps to the alertmanagers.config Thanos Ruler arg.
