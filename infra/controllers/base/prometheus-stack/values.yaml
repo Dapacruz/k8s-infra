@@ -1029,7 +1029,7 @@ alertmanager:
           resources:
             requests:
               # storage: 50Gi
-              storage: 25Gi
+              storage: 5Gi
           selector:
             matchLabels:
               app: alert-manager
@@ -1302,7 +1302,7 @@ grafana:
     storageClassName: grafana-data
     accessModes:
       - ReadWriteOnce
-    size: 20Gi
+    size: 10Gi
     finalizers:
       - kubernetes.io/pvc-protection
 
@@ -4279,7 +4279,7 @@ prometheus:
           resources:
             requests:
               # storage: 50Gi
-              storage: 25Gi
+              storage: 10Gi
           selector:
             matchLabels:
               app: prometheus
