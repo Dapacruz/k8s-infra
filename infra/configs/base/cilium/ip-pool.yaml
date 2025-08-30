@@ -4,7 +4,7 @@ metadata:
   name: traefik-pool
 spec:
   blocks:
-  - start: "172.31.1.248"
+  - start: "172.31.1.249"
   serviceSelector:
     matchLabels:
       "io.kubernetes.service.name": "traefik"

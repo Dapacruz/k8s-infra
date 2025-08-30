@@ -4,3 +4,33 @@ namespace: kube-system
 resources:
   - ../../base/cilium
 
+patches:
+- target:
+    kind: CiliumL2AnnouncementPolicy
+    name: l2-announcement-policy
+  patch: |-
+    - op: replace
+      path: /spec/interfaces/0
+      value: "^eth[0-9]+"
+- target:
+    kind: CiliumLoadBalancerIPPool
+    name: traefik-pool
+  patch: |-
+    - op: replace
+      path: /spec/blocks/0/start
+      value: "172.31.1.248"
+- target:
+    kind: IngressRoute
+    name: hubble
+  patch: |-
+    - op: replace
+      path: /spec/routes/0/match
+      value: Host(`hubble.staging.cruznet.io`)
+- target:
+    kind: Certificate
+    name: hubble
+  patch: |-
+    - op: replace
+      path: /spec/dnsNames/0
+      value: hubble.staging.cruznet.io
+

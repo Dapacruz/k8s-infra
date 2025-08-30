@@ -9,5 +9,5 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - hubble.staging.cruznet.io
+  - hubble.cruznet.io
 

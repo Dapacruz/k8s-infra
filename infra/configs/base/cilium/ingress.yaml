@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`hubble.staging.cruznet.io`)
+  - match: Host(`hubble.cruznet.io`)
     kind: Rule
     services:
     - name: hubble-ui
