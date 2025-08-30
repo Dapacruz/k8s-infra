@@ -4,3 +4,8 @@ namespace: longhorn-system
 resources:
   - ../../base/longhorn
 
+configMapGenerator:
+- name: longhorn-values
+  files:
+  - values.yaml=values.yaml
+

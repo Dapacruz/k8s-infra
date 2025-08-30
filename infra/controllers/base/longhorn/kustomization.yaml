@@ -6,10 +6,6 @@ resources:
 - helm-repository.yaml
 - helm-release.yaml
 
-configMapGenerator:
-- name: longhorn-values
-  files:
-  - values.yaml=values.yaml
-
 configurations:
 - kustomize-config.yaml
+
