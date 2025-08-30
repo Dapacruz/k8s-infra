@@ -5,5 +5,5 @@ resources:
   - l2-policy.yaml
   - ip-pool.yaml
   - ingress.yaml
-  # - certificate.yaml
+  - certificate.yaml
 
