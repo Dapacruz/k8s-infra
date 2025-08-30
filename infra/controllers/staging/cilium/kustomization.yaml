@@ -4,8 +4,8 @@ namespace: kube-system
 resources:
   - ../../base/cilium
 
-configMapGenerator:
-- name: cilium-values
-  files:
-  - values.yaml=values.yaml
+# configMapGenerator:
+# - name: cilium-values
+#   files:
+#   - values.yaml=values.yaml
 
