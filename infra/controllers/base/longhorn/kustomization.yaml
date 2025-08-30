@@ -13,3 +13,13 @@ configMapGenerator:
 
 configurations:
 - kustomize-config.yaml
+
+patches:
+- target:
+    kind: ConfigMap
+    name: longhorn-values
+  patch: |-
+    - op: replace
+      path: /defaultBackupStore/backupTarget
+      value: cifs://nas.cruznet.io/Media/Backups/Longhorn
+

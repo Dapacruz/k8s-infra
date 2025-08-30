@@ -4,11 +4,3 @@ namespace: longhorn-system
 resources:
   - ../../base/longhorn
 
-patches:
-- target:
-    kind: ConfigMap
-    name: longhorn-values
-  patch: |-
-    - op: replace
-      path: /defaultBackupStore/backupTarget
-      value: cifs://nas.cruznet.io/Media/Backups/Longhorn
