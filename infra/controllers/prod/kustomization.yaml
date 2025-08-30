@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
   - cilium
   - traefik
+  - cert-manager
   # - renovate
   # - prometheus-stack
-  # - cert-manager
   # - csi-driver-smb
   # - vault
   # - external-secrets
