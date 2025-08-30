@@ -6,7 +6,7 @@ resources:
   - traefik
   - cert-manager
   - csi-driver-smb
-  # - cilium
+  - cilium
   - vault
   - external-secrets
   - longhorn

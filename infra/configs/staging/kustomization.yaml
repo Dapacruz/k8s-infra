@@ -4,7 +4,7 @@ resources:
   - cert-manager
   - prometheus-stack
   - csi-driver-smb
-  # - cilium
+  - cilium
   - vault
   - external-secrets
   - longhorn
