@@ -4,10 +4,10 @@ resources:
   - cilium
   - traefik
   - cert-manager
-  # - renovate
-  # - prometheus-stack
-  # - csi-driver-smb
-  # - vault
-  # - external-secrets
+  - csi-driver-smb
   # - longhorn
+  # - prometheus-stack
+  # - external-secrets
+  # - vault
+  # - renovate
 

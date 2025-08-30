@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
   - cilium
   - cert-manager
-  # - prometheus-stack
-  # - csi-driver-smb
-  # - vault
-  # - external-secrets
+  - csi-driver-smb
   # - longhorn
+  # - prometheus-stack
+  # - external-secrets
+  # - vault
 
