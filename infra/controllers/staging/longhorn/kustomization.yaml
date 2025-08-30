@@ -6,6 +6,7 @@ resources:
 
 configMapGenerator:
 - name: longhorn-values
+  behavior: replace
   files:
-  - values.yaml=values.yaml
+  - values.yaml
 
