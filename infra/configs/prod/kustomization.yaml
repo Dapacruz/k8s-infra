@@ -6,6 +6,6 @@ resources:
   - csi-driver-smb
   # - longhorn
   # - prometheus-stack
-  # - external-secrets
   # - vault
+  # - external-secrets
 
