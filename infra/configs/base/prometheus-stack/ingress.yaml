@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`grafana.staging.cruznet.io`)
+  - match: Host(`grafana.cruznet.io`)
     kind: Rule
     services:
     - name: prometheus-stack-grafana

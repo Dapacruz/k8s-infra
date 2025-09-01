@@ -9,5 +9,5 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - grafana.staging.cruznet.io
+  - grafana.cruznet.io
 

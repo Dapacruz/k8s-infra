@@ -4,12 +4,11 @@ resources:
   - namespace.yaml
   - helm-repository.yaml
   - helm-release.yaml
-  - storage.yaml
 
 configMapGenerator:
 - name: prometheus-stack-values
   files:
-  - values.yaml=values.yaml
+  - values.yaml
 
 configurations:
 - kustomize-config.yaml

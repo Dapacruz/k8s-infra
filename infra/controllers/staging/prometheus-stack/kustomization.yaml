@@ -4,3 +4,32 @@ namespace: prometheus-stack
 resources:
   - ../../base/prometheus-stack
 
+configMapGenerator:
+- name: prometheus-stack-values
+  behavior: replace
+  files:
+  - values.yaml
+
+patches:
+- target:
+    kind: PersistentVolume
+    name: alert-manager-data
+  patch: |-
+    - op: replace
+      path: /spec/capacity/storage
+      value: "5Gi"
+- target:
+    kind: PersistentVolume
+    name: grafana-data
+  patch: |-
+    - op: replace
+      path: /spec/capacity/storage
+      value: "10Gi"
+- target:
+    kind: PersistentVolume
+    name: prometheus-data
+  patch: |-
+    - op: replace
+      path: /spec/capacity/storage
+      value: "10Gi"
+
