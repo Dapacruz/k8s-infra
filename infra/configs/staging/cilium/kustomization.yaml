@@ -10,6 +10,13 @@ patches:
     name: l2-announcement-policy
   patch: |-
     - op: replace
+      path: /spec/nodeSelector
+      value: {}
+- target:
+    kind: CiliumL2AnnouncementPolicy
+    name: l2-announcement-policy
+  patch: |-
+    - op: replace
       path: /spec/interfaces/0
       value: "^eth[0-9]+"
 - target:
