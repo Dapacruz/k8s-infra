@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`longhorn.staging.cruznet.io`)
+  - match: Host(`longhorn.cruznet.io`)
     kind: Rule
     services:
     - name: longhorn-frontend

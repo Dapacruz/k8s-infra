@@ -4,3 +4,19 @@ namespace: longhorn-system
 resources:
   - ../../base/longhorn
 
+patches:
+- target:
+    kind: IngressRoute
+    name: longhorn
+  patch: |-
+    - op: replace
+      path: /spec/routes/0/match
+      value: Host(`longhorn.staging.cruznet.io`)
+- target:
+    kind: Certificate
+    name: longhorn
+  patch: |-
+    - op: replace
+      path: /spec/dnsNames/0
+      value: longhorn.staging.cruznet.io
+

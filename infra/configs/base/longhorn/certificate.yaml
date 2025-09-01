@@ -9,5 +9,5 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - longhorn.staging.cruznet.io
+  - longhorn.cruznet.io
 
