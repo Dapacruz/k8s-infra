@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: homepage.staging.cruznet.io
+              value: homepage-new.cruznet.io,homepage.staging.cruznet.io
           ports:
             - name: http
               containerPort: 3000
