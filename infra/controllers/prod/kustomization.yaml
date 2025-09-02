@@ -8,6 +8,6 @@ resources:
   - longhorn
   - prometheus-stack
   - external-secrets
-  # - vault
+  - vault
   # - renovate
 

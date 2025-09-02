@@ -4,4 +4,19 @@ namespace: vault
 resources:
   - ../../base/vault
 
+patches:
+- target:
+    kind: IngressRoute
+    name: vault
+  patch: |-
+    - op: replace
+      path: /spec/routes/0/match
+      value: Host(`vault.staging.cruznet.io`)
+- target:
+    kind: Certificate
+    name: vault
+  patch: |-
+    - op: replace
+      path: /spec/dnsNames/0
+      value: vault.staging.cruznet.io
 

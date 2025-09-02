@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`vault.staging.cruznet.io`)
+  - match: Host(`vault.cruznet.io`)
     kind: Rule
     services:
     - name: vault

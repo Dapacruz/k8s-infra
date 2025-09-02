@@ -4,3 +4,9 @@ namespace: vault
 resources:
   - ../../base/vault
 
+configMapGenerator:
+- name: vault-values
+  behavior: replace
+  files:
+  - values.yaml
+

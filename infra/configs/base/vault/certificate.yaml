@@ -9,5 +9,5 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - vault.staging.cruznet.io
+  - vault.cruznet.io
 
