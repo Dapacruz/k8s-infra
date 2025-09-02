@@ -9,5 +9,5 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - homepage.cruznet.io
+  - homepage-new.cruznet.io
 
