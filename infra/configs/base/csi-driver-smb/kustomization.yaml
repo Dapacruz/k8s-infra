@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: kube-system
 resources:
   - secret-media.yaml
-  - persistent-volumes.yaml
 

@@ -31,4 +31,42 @@ spec:
   resources:
     requests:
       storage: "5Gi"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: media-data
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - vers=2.0
+  csi:
+    driver: smb2.csi.k8s.io
+    readOnly: false
+    volumeHandle: nas.cruznet.io/Media
+    volumeAttributes:
+      source: //nas.cruznet.io/Media
+    nodeStageSecretRef:
+      name: smb-creds-media
+      namespace: kube-system
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: media-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  volumeName: media-data
+  storageClassName: manual
 
