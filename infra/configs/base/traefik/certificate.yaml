@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: trafik
+  namespace: traefik
+spec:
+  secretName: traefik-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - traefik-new.cruznet.io
+  - traefik.cruznet.io
+
