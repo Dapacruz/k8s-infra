@@ -34,17 +34,8 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /etc/linkding/data
-        - name: media
-          mountPath: /tv
-          subPath: TV
-        - name: media
-          mountPath: /movies
-          subPath: Movies
       volumes:
       - name: data
         persistentVolumeClaim:
           claimName: linkding-claim
-      - name: media
-        persistentVolumeClaim:
-          claimName: media-claim
 
