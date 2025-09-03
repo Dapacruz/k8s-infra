@@ -8,4 +8,5 @@ resources:
   - prometheus-stack
   - external-secrets
   - vault
+  - traefik
 
