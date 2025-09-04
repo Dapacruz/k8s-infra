@@ -7,5 +7,5 @@ resources:
   - prowlarr
   - sonarr
   - radarr
-  # - overseerr
+  - overseerr
 
