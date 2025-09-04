@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: overseerr
+  labels:
+    app.kubernetes.io/name: overseerr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: overseerr
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: overseerr
+    spec:
+      serviceAccountName: overseerr
+      automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      # securityContext:
+      #   fsGroup: 33
+      #   runAsUser: 33
+      #   runAsGroup: 33
+      containers:
+      - name: overseerr
+        image: lscr.io/linuxserver/overseerr:latest
+        ports:
+        - name: http
+          containerPort: 5055
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+        env:
+        - name: PUID
+          value: "501"
+        - name: PGID
+          value: "20"
+        - name: TZ
+          value: "America/Los_Angeles"
+        volumeMounts:
+        - name: data
+          mountPath: /config
+          subPath: config
+        - name: media
+          mountPath: /config_previous
+          subPath: Movies/overseerr
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: overseerr-claim
+      - name: media
+        persistentVolumeClaim:
+          claimName: media-claim
+
