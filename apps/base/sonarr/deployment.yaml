@@ -51,9 +51,6 @@ spec:
         - name: sabnzbd-downloads
           mountPath: /downloads
           subPath: downloads
-        - name: overseerr
-          mountPath: /config_overseerr
-          subPath: config
       volumes:
       - name: data
         persistentVolumeClaim:
@@ -64,7 +61,4 @@ spec:
       - name: sabnzbd-downloads
         persistentVolumeClaim:
           claimName: sabnzbd-data-claim
-      - name: overseerr
-        persistentVolumeClaim:
-          claimName: overseerr-claim
 

@@ -103,38 +103,4 @@ spec:
   resources:
     requests:
       storage: "200Gi"
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: overseerr-data
-spec:
-  storageClassName: overseerr-data
-  persistentVolumeReclaimPolicy: Retain
-  csi:
-    driver: driver.longhorn.io
-    fsType: ext4
-    volumeHandle: overseerr-data
-    volumeAttributes:
-      dataLocality: best-effort
-      numberOfReplicas: "1"
-      staleReplicaTimeout: "30"
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: "5Gi"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: overseerr-claim
-spec:
-  storageClassName: overseerr-data
-  volumeName: overseerr-data
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: "5Gi"
 
