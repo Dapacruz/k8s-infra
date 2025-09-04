@@ -42,14 +42,8 @@ spec:
         - name: data
           mountPath: /config
           subPath: config
-        - name: media
-          mountPath: /config_previous
-          subPath: Movies/overseerr
       volumes:
       - name: data
         persistentVolumeClaim:
           claimName: overseerr-claim
-      - name: media
-        persistentVolumeClaim:
-          claimName: media-claim
 
