@@ -39,7 +39,7 @@ spec:
         - name: TZ
           value: "America/Los_Angeles"
         volumeMounts:
-        - name: data
+        - name: config
           mountPath: /config
           subPath: config
         - name: data
@@ -49,7 +49,10 @@ spec:
           mountPath: /watch
           subPath: downloads/watch
       volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: sabnzbd-config-claim
       - name: data
         persistentVolumeClaim:
-          claimName: sabnzbd-claim
+          claimName: sabnzbd-data-claim
 
