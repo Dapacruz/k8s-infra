@@ -40,8 +40,8 @@ spec:
           value: "America/Los_Angeles"
         volumeMounts:
         - name: data
-          mountPath: /configs
-          subPath: configs
+          mountPath: /config
+          subPath: config
         - name: data
           mountPath: /downloads
           subPath: downloads
