@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prowlarr
+  namespace: prowlarr
+spec:
+  secretName: prowlarr-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - prowlarr-new.cruznet.io
+  - prowlarr.cruznet.io
+
