@@ -18,10 +18,10 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      securityContext:
-        fsGroup: 33
-        runAsUser: 33
-        runAsGroup: 33
+      # securityContext:
+      #   fsGroup: 33
+      #   runAsUser: 33
+      #   runAsGroup: 33
       containers:
       - name: sabnzbd
         image: lscr.io/linuxserver/sabnzbd:latest
@@ -33,9 +33,9 @@ spec:
           allowPrivilegeEscalation: false
         env:
         - name: PUID
-          value: "33"
+          value: "501"
         - name: PGID
-          value: "33"
+          value: "20"
         - name: TZ
           value: "America/Los_Angeles"
         volumeMounts:
