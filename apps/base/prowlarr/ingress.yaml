@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`prowlarr-new.cruznet.io`)
+  - match: Host(`prowlarr.cruznet.io`)
     kind: Rule
     services:
     - name: prowlarr

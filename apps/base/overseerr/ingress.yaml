@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`overseerr-new.cruznet.io`)
+  - match: Host(`overseerr.cruznet.io`)
     kind: Rule
     services:
     - name: overseerr

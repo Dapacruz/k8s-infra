@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`radarr-new.cruznet.io`)
+  - match: Host(`radarr.cruznet.io`)
     kind: Rule
     services:
     - name: radarr

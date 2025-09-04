@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`sabnzbd-new.cruznet.io`)
+  - match: Host(`sabnzbd.cruznet.io`)
     kind: Rule
     services:
     - name: sabnzbd

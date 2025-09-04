@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`sonarr-new.cruznet.io`)
+  - match: Host(`sonarr.cruznet.io`)
     kind: Rule
     services:
     - name: sonarr
