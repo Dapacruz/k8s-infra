@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sabnzbd
+  namespace: sabnzbd
+spec:
+  secretName: sabnzbd-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - sabnzbd-new.cruznet.io
+  - sabnzbd.cruznet.io
+
