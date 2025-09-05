@@ -8,4 +8,5 @@ resources:
   - sonarr
   - radarr
   - overseerr
+  - tautulli
 
