@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`tautulli-new.cruznet.io`)
+  - match: Host(`tautulli.cruznet.io`)
     kind: Rule
     services:
     - name: tautulli
