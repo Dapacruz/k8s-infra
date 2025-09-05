@@ -1,0 +1,11 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: unifi-pool
+spec:
+  blocks:
+  - start: "172.31.1.247"
+  serviceSelector:
+    matchLabels:
+      "io.kubernetes.service.name": "unifi"
+
