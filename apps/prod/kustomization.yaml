@@ -9,5 +9,5 @@ resources:
   - radarr
   - overseerr
   - tautulli
-  # - uptime-kuma
+  - uptime-kuma
 
