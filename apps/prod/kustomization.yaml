@@ -5,7 +5,7 @@ resources:
   - linkding
   - sabnzbd
   - prowlarr
-  - sonarr
+  # - sonarr
   - radarr
   - overseerr
   - tautulli
