@@ -8,4 +8,5 @@ resources:
   - vault
   - external-secrets
   - longhorn
+  - traefik
 
