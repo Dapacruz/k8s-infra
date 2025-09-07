@@ -12,4 +12,6 @@ resources:
   - uptime-kuma
   - unifi
   - calibre
+  - readarr
+  - listenarr
 

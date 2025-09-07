@@ -1,0 +1,18 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: listenarr
+  namespace: listenarr
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`listenarr.cruznet.io`)
+    kind: Rule
+    services:
+    - name: listenarr
+      kind: Service
+      port: 8787
+  tls:
+    secretName: listenarr-cert
+
