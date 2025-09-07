@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`homepage-new.cruznet.io`)
+  - match: Host(`homepage.cruznet.io`)
     kind: Rule
     services:
     - name: homepage

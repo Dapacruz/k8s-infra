@@ -10,4 +10,5 @@ spec:
     kind: ClusterIssuer
   dnsNames:
   - homepage-new.cruznet.io
+  - homepage.cruznet.io
 
