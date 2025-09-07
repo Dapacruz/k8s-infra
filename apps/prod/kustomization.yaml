@@ -11,5 +11,5 @@ resources:
   - tautulli
   - uptime-kuma
   - unifi
-  - calibre
+  # - calibre
 
