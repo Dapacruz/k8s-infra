@@ -103,4 +103,38 @@ spec:
   resources:
     requests:
       storage: "200Gi"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: calibre-data
+spec:
+  storageClassName: calibre-data
+  persistentVolumeReclaimPolicy: Retain
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: calibre-data
+    volumeAttributes:
+      dataLocality: best-effort
+      numberOfReplicas: "1"
+      staleReplicaTimeout: "30"
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: "5Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: calibre-claim
+spec:
+  storageClassName: calibre-data
+  volumeName: calibre-data
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "5Gi"
 
