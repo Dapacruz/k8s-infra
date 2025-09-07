@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calibre
+  labels:
+    app.kubernetes.io/name: calibre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: calibre
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: calibre
+    spec:
+      serviceAccountName: calibre
+      automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      # securityContext:
+      #   fsGroup: 33
+      #   runAsUser: 33
+      #   runAsGroup: 33
+      containers:
+      - name: calibre
+        image: lscr.io/linuxserver/calibre:latest
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        securityContext:
+          allowPrivilegeEscalation: false
+        env:
+        - name: PUID
+          value: "501"
+        - name: PGID
+          value: "20"
+        - name: TZ
+          value: "America/Los_Angeles"
+        volumeMounts:
+        - name: data
+          mountPath: /config
+          subPath: config
+        - name: media
+          mountPath: /calibre
+          subPath: Calibre
+        - name: media
+          mountPath: /books
+          subPath: eBooks
+        - name: sabnzbd-downloads
+          mountPath: /downloads
+          subPath: downloads
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: calibre-claim
+      - name: media
+        persistentVolumeClaim:
+          claimName: media-claim
+      - name: sabnzbd-downloads
+        persistentVolumeClaim:
+          claimName: sabnzbd-data-claim
+

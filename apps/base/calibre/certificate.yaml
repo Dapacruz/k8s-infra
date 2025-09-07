@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: calibre
+  namespace: calibre
+spec:
+  secretName: calibre-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - calibre-new.cruznet.io
+  - calibre.cruznet.io
+

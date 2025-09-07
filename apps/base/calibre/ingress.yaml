@@ -1,0 +1,18 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: calibre
+  namespace: calibre
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: Host(`calibre.cruznet.io`)
+    kind: Rule
+    services:
+    - name: calibre
+      kind: Service
+      port: 8080
+  tls:
+    secretName: calibre-cert
+
