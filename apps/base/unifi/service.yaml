@@ -30,11 +30,27 @@ spec:
   - port: 8080
     targetPort: 8080
     protocol: TCP
-    name: dev-com
+    name: communication
   - port: 3478
     targetPort: 3478
     protocol: UDP
     name: stun
+  - port: 10001
+    protocol: UDP
+    targetPort: 10001
+    name: discovery
+  - port: 5514
+    protocol: UDP
+    targetPort: 5514
+    name: syslog
+  - port: 6789
+    protocol: TCP
+    targetPort: 6789
+    name: speed-test
+  - port: 1900
+    protocol: UDP
+    targetPort: 1900
+    name: l2-discovery
   selector:
     app.kubernetes.io/name: unifi
 ---

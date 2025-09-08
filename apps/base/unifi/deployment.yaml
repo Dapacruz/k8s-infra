@@ -29,12 +29,21 @@ spec:
         - name: webui
           containerPort: 8443
           protocol: TCP
-        - name: dev-com
+        - name: communication
           containerPort: 8080
           protocol: TCP
         - name: stun
           containerPort: 3478
           protocol: UDP
+        - name: discovery
+          containerPort: 10001
+          protocol: UDP
+        - name: syslog
+          containerPort: 5514
+          protocol: UDP
+        - name: speed-test
+          containerPort: 6789
+          protocol: TCP
         securityContext:
           allowPrivilegeEscalation: false
         env:
