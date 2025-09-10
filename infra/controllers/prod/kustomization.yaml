@@ -6,6 +6,7 @@ resources:
   - cert-manager
   - csi-driver-smb
   - longhorn
+  - metrics-server
   - prometheus-stack
   - external-secrets
   - vault
