@@ -10,7 +10,7 @@ spec:
   - match: Host(`plex-new.cruznet.io`)
     kind: Rule
     services:
-    - name: plex-ui
+    - name: plex
       kind: Service
       port: 32400
   tls:

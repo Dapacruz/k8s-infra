@@ -71,7 +71,7 @@ kind: PersistentVolume
 metadata:
   name: plex-media-data
 spec:
-  storageClassName: media-data
+  storageClassName: ""
   capacity:
     storage: 50Gi
   accessModes:
@@ -94,7 +94,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: media-claim
+  name: media-data-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -102,4 +102,5 @@ spec:
     requests:
       storage: 10Gi
   volumeName: plex-media-data
-  storageClassName: media-data
+  storageClassName: ""
+

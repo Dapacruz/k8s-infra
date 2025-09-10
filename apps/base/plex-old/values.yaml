@@ -83,12 +83,12 @@ persistence:
     existingClaim: plex-config-claim
     size: 30Gi
 
-  movie:
+  movies:
     enabled: true
     type: pvc
     mountPath: /movies
     storageClass: ""
-    existingClaim: media-claim
+    existingClaim: media-data-claim
     subPath: Movies
 
   tv:
@@ -96,7 +96,7 @@ persistence:
     type: pvc
     mountPath: /tv
     storageClass: ""
-    existingClaim: media-claim
+    existingClaim: media-data-claim
     subPath: TV
 
   transcode:
@@ -104,7 +104,7 @@ persistence:
     type: pvc
     mountPath: /transcode
     storageClass: ""
-    existingClaim: plex-data-claim
+    existingClaim: plex-transcode-claim
     size: 75Gi
 
   quicksync:
