@@ -12,7 +12,7 @@ resources:
   - uptime-kuma
   - unifi
   - calibre
-  # - plex
+  - plex
   # - readarr
   # - listenarr
 
