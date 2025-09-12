@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - websecure
   routes:
-  - match: Host(`traefik-new.cruznet.io`)
+  - match: Host(`traefik.cruznet.io`)
     kind: Rule
     services:
     - name: api@internal
