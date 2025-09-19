@@ -13,6 +13,7 @@ resources:
   - unifi
   - calibre
   - plex
+  - rustdesk
   # - readarr
   # - listenarr
 
