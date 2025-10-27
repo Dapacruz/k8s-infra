@@ -25,7 +25,7 @@ spec:
       #   runAsGroup: 33
       containers:
       - name: plex
-        image: lscr.io/linuxserver/plex:1.42.1
+        image: lscr.io/linuxserver/plex:1.42.2@sha256:a59133e5b94b3ca19158e4ab272657c77c62dc9abdbebe1172b7657da138badb
         imagePullPolicy: IfNotPresent
         ports:
         - name: http
