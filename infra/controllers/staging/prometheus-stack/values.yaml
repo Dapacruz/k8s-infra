@@ -3299,7 +3299,7 @@ prometheusOperator:
   thanosImage:
     registry: quay.io
     repository: thanos/thanos
-    tag: v0.38.0
+    tag: v0.40.1@sha256:aae7b2b030ed00d88abd8c5a357d08b46f22151ca0d50d9c796223fa332389c8
     sha: ""
 
   ## Set a Label Selector to filter watched prometheus and prometheusAgent
@@ -5032,7 +5032,7 @@ thanosRuler:
     image:
       registry: quay.io
       repository: thanos/thanos
-      tag: v0.38.0
+      tag: v0.40.1@sha256:aae7b2b030ed00d88abd8c5a357d08b46f22151ca0d50d9c796223fa332389c8
       sha: ""
 
     ## Namespaces to be selected for PrometheusRules discovery.
