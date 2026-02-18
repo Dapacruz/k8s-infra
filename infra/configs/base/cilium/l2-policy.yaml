@@ -6,7 +6,7 @@ metadata:
 spec:
   nodeSelector:
     matchExpressions:
-    - key: node-role.kubernetes.io/control-plane
+    - key: l2.cilium.io/disable
       operator: DoesNotExist
   interfaces:
   - '^enp89s[0-9]+'
