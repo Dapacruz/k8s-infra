@@ -3,7 +3,7 @@
   extends: [
     'config:best-practices',
   ],
-  dependencyDashboard: true,
+  dependencyDashboard: false,
   dependencyDashboardTitle: 'Renovate Dashboard',
   dependencyDashboardAutoclose: true,
   kubernetes: {
