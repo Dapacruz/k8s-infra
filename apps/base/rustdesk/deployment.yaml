@@ -26,7 +26,8 @@ spec:
       - name: hbbr
         args:
         - hbbr
-        image: rustdesk/rustdesk-server:latest
+        image: rustdesk/rustdesk-server@sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 21117
           - containerPort: 21119
@@ -55,7 +56,8 @@ spec:
         - hbbs
         - -r
         - localhost:21117
-        image: rustdesk/rustdesk-server:latest
+        image: rustdesk/rustdesk-server@sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 21115
           - containerPort: 21116

@@ -24,7 +24,8 @@ spec:
       #   runAsGroup: 33
       containers:
       - name: calibre
-        image: lscr.io/linuxserver/calibre:latest
+        image: lscr.io/linuxserver/calibre@sha256:761e63aa102219f6332fa7d000ce066dc4761081fb521836aeaad9cb4cfcdcae
+        imagePullPolicy: IfNotPresent
         ports:
         - name: http
           containerPort: 8080

@@ -24,7 +24,8 @@ spec:
       #   runAsGroup: 33
       containers:
       - name: unifi
-        image: jacobalberty/unifi:latest
+        image: jacobalberty/unifi@sha256:896c0ab82d33300694dae82982fd7094497afcbea0be92cadc1e94bfead731d3
+        imagePullPolicy: IfNotPresent
         ports:
         - name: webui
           containerPort: 8443

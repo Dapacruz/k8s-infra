@@ -25,8 +25,8 @@ spec:
       #   runAsGroup: 33
       containers:
       - name: plex
-        image: lscr.io/linuxserver/plex:latest
-        imagePullPolicy: Always
+        image: lscr.io/linuxserver/plex@sha256:bbe0118e39e2c071fc5fe39af3f32072207bf4146d56b6a8901bcb23082df207
+        imagePullPolicy: IfNotPresent
         ports:
         - name: http
           containerPort: 32400

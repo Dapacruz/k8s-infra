@@ -24,7 +24,8 @@ spec:
       #   runAsGroup: 33
       containers:
       - name: tautulli
-        image: ghcr.io/tautulli/tautulli:latest
+        image: ghcr.io/tautulli/tautulli@sha256:746b2accd580c8551bff3570eab9c6606bbefe9b33567feace2a3c3c9863a1d1
+        imagePullPolicy: IfNotPresent
         ports:
         - name: http
           containerPort: 8181
