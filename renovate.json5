@@ -24,8 +24,8 @@
     // Disable automerge for major releases
     {
       matchUpdateTypes: ['major'],
-      automerge: false
-      labels: ['automerge-disabled']
+      automerge: false,
+      labels: ['automerge-disabled'],
     },
 
     // Disable automerge
@@ -37,8 +37,8 @@
         'vault',
         'csi-driver-smb',
       ],
-      automerge: false
-      labels: ['automerge-disabled']
+      automerge: false,
+      labels: ['automerge-disabled'],
     }
 
     // Automerge anytime exception
@@ -47,7 +47,7 @@
       matchPackageNames: [
         '/radarr/',
         '/sonarr/',
-        '/sabnzbd/'
+        '/sabnzbd/',
         '/tautulli/',
         '/unifi/',
         '/prowlarr/',
@@ -57,7 +57,7 @@
       ],
       automerge: true,
       automergeSchedule: ['* * * * *'],
-      labels: ['automerge-anytime']
+      labels: ['automerge-anytime'],
     },
 
     // Helm general rule
