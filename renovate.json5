@@ -39,7 +39,7 @@
       ],
       automerge: false,
       labels: ['automerge-disabled'],
-    }
+    },
 
     // Automerge anytime exception
     {
