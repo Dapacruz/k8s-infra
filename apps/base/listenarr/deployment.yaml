@@ -24,7 +24,7 @@ spec:
       #   runAsGroup: 33
       containers:
       - name: listenarr
-        image: linuxserver/readarr:amd64-nightly
+        image: linuxserver/readarr:amd64-nightly@sha256:eb37f58646a901dc7727cf448cae36daaefaba79de33b5058dab79aa4c04aefb
         ports:
         - name: http
           containerPort: 8787
