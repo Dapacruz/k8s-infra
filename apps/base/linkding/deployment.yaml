@@ -24,7 +24,7 @@ spec:
         runAsGroup: 33
       containers:
       - name: linkding
-        image: sissbruecker/linkding:1.40.0@sha256:e498575b84f5e84d36ed69ed0036ff33916b3d1bb5908f1892ac935e1754590d
+        image: sissbruecker/linkding:1.45.0@sha256:61b2eb9eed8e5772a473fb7f1f8923e046cb8cbbeb50e88150afd5ff287d4060
         ports:
           - name: http
             containerPort: 9090
