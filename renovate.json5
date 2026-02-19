@@ -1,69 +1,112 @@
 {
-  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  enabled: true,
+  timezone: 'America/Los_Angeles',
   extends: [
     'config:best-practices',
   ],
-  dependencyDashboard: false,
+  dependencyDashboard: true,
   dependencyDashboardTitle: 'Renovate Dashboard',
-  dependencyDashboardAutoclose: true,
+  dependencyDashboardAutoclose: false,
   kubernetes: {
     managerFilePatterns: [
       '/\\.yaml$/',
     ],
   },
-  ignoreDeps: [
-    'ghcr.io/fluxcd/helm-controller',
-    'ghcr.io/fluxcd/image-automation-controller',
-    'ghcr.io/fluxcd/image-reflector-controller',
-    'ghcr.io/fluxcd/kustomize-controller',
-    'ghcr.io/fluxcd/notification-controller',
-    'ghcr.io/fluxcd/source-controller',
-  ],
   assignees: [
     '@Dapacruz',
   ],
   commitBody: 'Signed-off-by: Dapacruz',
+  suppressNotifications: ['prIgnoreNotification'],
+  rebaseWhen: 'auto',
+  automerge: true,
+  automergeSchedule: ['* 1-4 * * *'],
   packageRules: [
+    // Disable automerge for major releases
     {
-      description: 'Automatically merge minor and patch-level updates',
-      matchUpdateTypes: [
-        'minor',
-        'patch',
-        'digest',
+      matchUpdateTypes: ['major'],
+      automerge: false
+      labels: ['automerge-disabled']
+    },
+
+    // Disable automerge
+    {
+      matchDatasources: ['docker', 'helm'],
+      matchPackageNames: [
+        'longhorn',
+        'cilium',
+        'vault',
+        'csi-driver-smb',
+      ],
+      automerge: false
+      labels: ['automerge-disabled']
+    }
+
+    // Automerge anytime exception
+    {
+      matchDatasources: ['docker', 'helm'],
+      matchPackageNames: [
+        '/radarr/',
+        '/sonarr/',
+        '/sabnzbd/'
+        '/tautulli/',
+        '/unifi/',
+        '/prowlarr/',
+        'cert-manager',
+        'metrics-server',
+        'kube-prometheus-stack',
       ],
       automerge: true,
-      automergeType: 'branch',
+      automergeSchedule: ['* * * * *'],
+      labels: ['automerge-anytime']
+    },
+
+    // Helm general rule
+    {
+      matchDatasources: ['helm'],
+      commitMessageTopic: 'Helm chart {{depName}}',
+      enabled: true,
+    },
+
+    // Docker general rule
+    {
+      matchDatasources: ['docker'],
+      commitMessageTopic: 'Docker image {{depName}}',
+      commitMessageExtra: 'to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}',
+      enabled: true,
+    },
+
+    // Docker label rules
+    {
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['major'],
+      labels: ['renovate/image-release', 'dependency/major']
     },
     {
-      description: 'Disables the creation of branches/PRs for any minor/patch updates etc. of Renovate bot',
-      matchFileNames: [
-        'renovate-update-notification/Dockerfile',
-      ],
-      matchUpdateTypes: [
-        'minor',
-        'patch',
-        'pin',
-        'digest',
-        'rollback',
-      ],
-      enabled: false,
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['minor'],
+      labels: ['renovate/image-release', 'dependency/minor']
     },
     {
-      description: 'Causes the bot to create a PR (and thus, an email notification), whenever there is a new major Renovate version',
-      matchFileNames: [
-        'renovate-update-notification/Dockerfile',
-      ],
-      matchUpdateTypes: [
-        'major',
-      ],
-      automerge: true,
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['patch'],
+      labels: ['renovate/image-release', 'dependency/patch']
+    },
+
+    // Helm label rules
+    {
+      matchDatasources: ['helm'],
+      matchUpdateTypes: ['major'],
+      labels: ['renovate/helm-release', 'dependency/major']
+    },
+    {
+      matchDatasources: ['helm'],
+      matchUpdateTypes: ['minor'],
+      labels: ['renovate/helm-release', 'dependency/minor']
+    },
+    {
+      matchDatasources: ['helm'],
+      matchUpdateTypes: ['patch'],
+      labels: ['renovate/helm-release', 'dependency/patch']
     },
   ],
-  schedule: [
-    'after 10pm every weekday',
-    'before 5am every weekday',
-    'every weekend',
-  ],
-  rebaseWhen: 'behind-base-branch',
-  rollbackPrs: true,
 }
