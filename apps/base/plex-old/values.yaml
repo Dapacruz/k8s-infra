@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: lscr.io/linuxserver/plex
   # @default -- chart.appVersion
-  tag: 1.42.1@sha256:3380d8901bf62a9b2246e665d6b8d1f9e03847327b539fb95feef681a8a171ff
+  tag: 1.43.0@sha256:bbe0118e39e2c071fc5fe39af3f32072207bf4146d56b6a8901bcb23082df207
   # -- image pull policy
   pullPolicy: IfNotPresent
 
