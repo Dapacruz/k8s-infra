@@ -12,6 +12,11 @@
       '/\\.yaml$/',
     ],
   },
+  flux: {
+    managerFilePatterns: [
+      '/\\.yaml$/',
+    ],
+  },
   assignees: [
     '@Dapacruz',
   ],
