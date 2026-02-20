@@ -4,6 +4,7 @@
   extends: [
     'config:best-practices',
     ':separateMultipleMajorReleases',
+    ':separateMultipleMinorReleases',
   ],
   dependencyDashboard: true,
   dependencyDashboardTitle: 'Renovate Dashboard',
