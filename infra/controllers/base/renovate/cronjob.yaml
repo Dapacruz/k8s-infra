@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
             - name: renovate
-              image: renovate/renovate@sha256:d74a16d0b021014173dfac4b0c2e440bd882f65072272ba98dd80a551c28a42c
+              image: renovate/renovate@sha256:9aae00391f6338d63ed3e147f03712ba45a1753226824a37f0a648313aea76bd
               imagePullPolicy: IfNotPresent
               args:
                 - Dapacruz/k8s-infra
