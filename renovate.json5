@@ -29,11 +29,25 @@
   automerge: true,
   automergeSchedule: ['* 1-4 * * *'],
   packageRules: [
-    // Disable automerge for major releases
+    // Automerge anytime exception
     {
-      matchUpdateTypes: ['major'],
-      automerge: false,
-      labels: ['automerge-disabled'],
+      matchDatasources: ['docker', 'helm'],
+      matchPackageNames: [
+        '/calibre/',
+        '/radarr/',
+        '/renovate/',
+        '/sonarr/',
+        '/sabnzbd/',
+        '/tautulli/',
+        '/unifi/',
+        '/prowlarr/',
+        '/cert-manager/',
+        '/metrics-server/',
+        '/kube-prometheus-stack/',
+      ],
+      automerge: true,
+      automergeSchedule: ['* * * * *'],
+      labels: ['automerge-anytime'],
     },
 
     // Disable automerge
@@ -50,23 +64,11 @@
       labels: ['automerge-disabled'],
     },
 
-    // Automerge anytime exception
+    // Disable automerge for major releases
     {
-      matchDatasources: ['docker', 'helm'],
-      matchPackageNames: [
-        '/radarr/',
-        '/sonarr/',
-        '/sabnzbd/',
-        '/tautulli/',
-        '/unifi/',
-        '/prowlarr/',
-        '/cert-manager/',
-        '/metrics-server/',
-        '/kube-prometheus-stack/',
-      ],
-      automerge: true,
-      automergeSchedule: ['* * * * *'],
-      labels: ['automerge-anytime'],
+      matchUpdateTypes: ['major'],
+      automerge: false,
+      labels: ['automerge-disabled'],
     },
 
     // Helm general rule
