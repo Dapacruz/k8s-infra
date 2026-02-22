@@ -8,4 +8,5 @@ data:
   RENOVATE_GIT_AUTHOR: "Renovate Bot <bot@renovateapp.com>"
   RENOVATE_PLATFORM: "github"
   RENOVATE_REPOSITORIES: "Dapacruz/k8s-infra"
+  RENOVATE_LOG_LEVEL: "debug"
 
