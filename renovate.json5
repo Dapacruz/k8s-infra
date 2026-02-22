@@ -23,6 +23,7 @@
     '@Dapacruz',
   ],
   commitBody: 'Signed-off-by: Dapacruz',
+  repositories: ['Dapacruz/k8s-infra'],
   prConcurrentLimit: 20,
   suppressNotifications: ['prIgnoreNotification'],
   rebaseWhen: 'auto',
