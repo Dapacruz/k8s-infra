@@ -9,5 +9,4 @@ resources:
   - vault
   - external-secrets
   - longhorn
-  # - renovate
 
