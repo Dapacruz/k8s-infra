@@ -2,7 +2,7 @@ config:
   persistence:
     existingClaim: seerr-claim
 ingress:
-  enabled: true
+  enabled: false
   ingressClassName: traefik
   hosts:
     - host: seerr.cruznet.io
