@@ -1,18 +1,18 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: seer
-  namespace: seer
+  name: seerr
+  namespace: seerr
 spec:
   interval: 30m
   chart:
     spec:
-      chart: seer
+      chart: seerr
       version: 3.0.1
       sourceRef:
         kind: HelmRepository
-        name: seer
-        namespace: seer
+        name: seerr
+        namespace: seerr
       interval: 12h
   install:
     crds: Create
