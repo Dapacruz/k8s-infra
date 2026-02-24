@@ -18,10 +18,10 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      # podSecurityContext:
-      #   fsGroup: 1000
-      #   fsGroupChangePolicy: OnRootMismatch
-      # securityContext:
+      podSecurityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      securityContext:
         # allowPrivilegeEscalation: false
         # capabilities:
         #   drop:
@@ -30,8 +30,8 @@ spec:
         # runAsNonRoot: true
         # privileged: false
         # fsGroup: 1000
-        # runAsUser: 1000
-        # runAsGroup: 1000
+        runAsUser: 1000
+        runAsGroup: 1000
         # seccompProfile:
         #   type: RuntimeDefault
       containers:
