@@ -3,5 +3,4 @@ config:
     existingClaim: seerr-claim
 serviceAccount:
   create: false
-  name: seerr
 
