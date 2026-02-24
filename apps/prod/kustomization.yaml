@@ -14,4 +14,6 @@ resources:
   - calibre
   - plex
   - rustdesk
+  # - readarr
+  # - listenarr
 

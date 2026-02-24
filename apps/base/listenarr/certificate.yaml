@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: listenarr
+  namespace: listenarr
+spec:
+  secretName: listenarr-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - listenarr-new.cruznet.io
+  - listenarr.cruznet.io
+
