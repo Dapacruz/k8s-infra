@@ -1,15 +1,6 @@
 config:
   persistence:
     existingClaim: seerr-claim
-ingress:
-  enabled: true
-  ingressClassName: traefik
-  hosts:
-    - host: seerr.cruznet.io
-  tls:
-  - secretName: seerr-cert
-    hosts:
-      - seerr.cruznet.io
 serviceAccount:
   create: false
   name: seerr
