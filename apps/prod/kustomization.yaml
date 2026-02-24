@@ -8,7 +8,7 @@ resources:
   - sonarr
   - radarr
   - overseerr
-  - seerr
+  # - seerr
   - tautulli
   - uptime-kuma
   - unifi
