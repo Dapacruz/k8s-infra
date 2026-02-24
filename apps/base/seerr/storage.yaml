@@ -17,4 +17,18 @@ spec:
     - ReadWriteOnce
   capacity:
     storage: "5Gi"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: seerr-claim
+spec:
+  storageClassName: seerr-data
+  volumeName: seerr-data
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: "5Gi"
 
