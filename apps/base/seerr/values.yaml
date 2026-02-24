@@ -1,6 +1,0 @@
-config:
-  persistence:
-    existingClaim: seerr-claim
-serviceAccount:
-  create: false
-
