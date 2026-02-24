@@ -13,6 +13,12 @@ spec:
     - name: seerr
       kind: Service
       port: 5055
+  - match: Host(`overseerr.cruznet.io`)
+    kind: Rule
+    services:
+    - name: seerr
+      kind: Service
+      port: 5055
   tls:
     secretName: seerr-cert
 
