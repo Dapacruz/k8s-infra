@@ -18,22 +18,22 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      # podSecurityContext:
-      #   fsGroup: 1000
-      #   fsGroupChangePolicy: OnRootMismatch
-      # securityContext:
-      #   allowPrivilegeEscalation: false
-      #   capabilities:
-      #     drop:
-      #       - ALL
-      #   readOnlyRootFilesystem: false
-      #   runAsNonRoot: true
-      #   privileged: false
+      podSecurityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        readOnlyRootFilesystem: false
+        runAsNonRoot: true
+        privileged: false
         # fsGroup: 1000
-        # runAsUser: 1000
-        # runAsGroup: 1000
-        # seccompProfile:
-        #   type: RuntimeDefault
+        runAsUser: 1000
+        runAsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: overseerr
         image: ghcr.io/seerr-team/seerr:latest
