@@ -51,7 +51,7 @@ spec:
           value: "America/Los_Angeles"
         volumeMounts:
         - name: data
-          mountPath: /config
+          mountPath: /app/config
           subPath: config
       volumes:
       - name: data
