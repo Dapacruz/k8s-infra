@@ -1,0 +1,16 @@
+config:
+  persistence:
+    volumeName: seer-data
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  hosts:
+    - host: seer.cruznet.io
+  tls:
+  - secretName: seer-cert
+    hosts:
+      - seer.cruznet.io
+serviceAccount:
+  create: false
+  name: seerr
+
