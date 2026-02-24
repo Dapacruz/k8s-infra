@@ -20,5 +20,5 @@ spec:
     crds: CreateReplace
   valuesFrom:
   - kind: ConfigMap
-    name: seer-values
+    name: seerr-values
 

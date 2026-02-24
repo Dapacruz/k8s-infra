@@ -10,7 +10,7 @@ resources:
   - storage.yaml
 
 configMapGenerator:
-- name: seer-values
+- name: seerr-values
   files:
   - values.yaml
 
