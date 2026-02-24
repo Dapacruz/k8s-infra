@@ -7,7 +7,7 @@ resources:
   - prowlarr
   - sonarr
   - radarr
-  - overseerr
+  # - overseerr
   - tautulli
   - uptime-kuma
   - unifi
