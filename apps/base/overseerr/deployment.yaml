@@ -27,13 +27,13 @@ spec:
         #   drop:
         #     - ALL
         # readOnlyRootFilesystem: false
-        # runAsNonRoot: true
+        runAsNonRoot: true
         # privileged: false
         # fsGroup: 1000
         runAsUser: 1000
         runAsGroup: 1000
-        # seccompProfile:
-        #   type: RuntimeDefault
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: overseerr
         image: ghcr.io/seerr-team/seerr:latest
