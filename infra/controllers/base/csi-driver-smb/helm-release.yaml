@@ -20,6 +20,9 @@ spec:
       driver:
         name: smb2.csi.k8s.io
 
+      feature:
+        enableInlineVolume: false
+
       controller:
         name: csi-smb2-controller
 
