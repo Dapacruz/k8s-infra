@@ -28,6 +28,7 @@
   rebaseWhen: 'auto',
   automerge: true,
   automergeSchedule: ['* 1-4 * * *'],
+  platformAutomerge: false,
   packageRules: [
     // Automerge anytime exception
     {
@@ -82,7 +83,10 @@
     {
       matchDatasources: ['docker'],
       commitMessageTopic: 'Docker image {{depName}}',
-      commitMessageExtra: "to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}",
+      commitMessageExtra:
+        "to {{#if isSingleVersion}}v{{{newVersion}}}" +
+        "{{else}}{{#if newValue}}{{{newValue}}}{{/if}}{{/if}}" +
+        "{{#if isPinDigest}}{{#if newDigestShort}} (digest {{newDigestShort}}){{/if}}{{/if}}",
       enabled: true,
     },
 
