@@ -25,9 +25,9 @@
   "commitBody": "Signed-off-by: Dapacruz",
   "prConcurrentLimit": 20,
   "suppressNotifications": ["prIgnoreNotification"],
-  "rebaseWhen": "auto",
   "automerge": true,
   "automergeSchedule": ["* 1-4 * * *"],
+  "rebaseWhen": "behind-base-branch",
   "ignoreTests": true,
   "packageRules": [
     // Automerge anytime exception
