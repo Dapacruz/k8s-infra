@@ -8,6 +8,7 @@ resources:
   - longhorn
   - metrics-server
   - prometheus-stack
+  - reloader
   - external-secrets
   - vault
 
