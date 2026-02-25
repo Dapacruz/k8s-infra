@@ -49,7 +49,7 @@
       ],
       automerge: true,
       automergeSchedule: ['* * * * *'],
-      addLabels: ['automerge-anytime'],
+      labels: ['automerge-anytime'],
     },
 
     // Disable automerge
@@ -63,14 +63,14 @@
         '/vault/',
       ],
       automerge: false,
-      addLabels: ['automerge-disabled'],
+      labels: ['automerge-disabled'],
     },
 
     // Disable automerge for major releases
     {
       matchUpdateTypes: ['major'],
       automerge: false,
-      addLabels: ['automerge-disabled'],
+      labels: ['automerge-disabled'],
     },
 
     // Helm general rule
