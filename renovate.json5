@@ -82,7 +82,7 @@
     {
       matchDatasources: ['docker'],
       commitMessageTopic: 'Docker image {{depName}}',
-      commitMessageExtra: "to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}",
+      commitMessageExtra: "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{/if}}{{/if}}{{#if newDigestShort}} (digest {{newDigestShort}}){{/if}}",
       enabled: true,
     },
 
