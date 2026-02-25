@@ -1,124 +1,124 @@
 {
-  "enabled": true,
-  "timezone": "America/Los_Angeles",
-  "extends": [
-    "config:best-practices",
-    ":separateMultipleMajorReleases",
-    ":separateMultipleMinorReleases",
+  enabled: true,
+  timezone: 'America/Los_Angeles',
+  extends: [
+    'config:best-practices',
+    ':separateMultipleMajorReleases',
+    ':separateMultipleMinorReleases',
   ],
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Renovate Dashboard",
-  "dependencyDashboardAutoclose": false,
-  "kubernetes": {
-    "managerFilePatterns": [
-      "/\\.yaml$/",
+  dependencyDashboard: true,
+  dependencyDashboardTitle: 'Renovate Dashboard',
+  dependencyDashboardAutoclose: false,
+  kubernetes: {
+    managerFilePatterns: [
+      '/\\.yaml$/',
     ],
   },
-  "flux": {
-    "managerFilePatterns": [
-      "/\\.yaml$/",
+  flux: {
+    managerFilePatterns: [
+      '/\\.yaml$/',
     ],
   },
-  "assignees": [
-    "@Dapacruz",
+  assignees: [
+    'Dapacruz',
   ],
-  "commitBody": "Signed-off-by: Dapacruz",
-  "prConcurrentLimit": 20,
-  "suppressNotifications": ["prIgnoreNotification"],
-  "automerge": true,
-  "automergeSchedule": ["* 1-4 * * *"],
-  "rebaseWhen": "behind-base-branch",
-  "ignoreTests": true,
-  "packageRules": [
+  commitBody: 'Signed-off-by: Dapacruz',
+  prConcurrentLimit: 20,
+  suppressNotifications: ['prIgnoreNotification'],
+  automerge: true,
+  automergeSchedule: ['* 1-4 * * *'],
+  rebaseWhen: 'behind-base-branch',
+  ignoreTests: true,
+  packageRules: [
     // Automerge anytime exception
     {
-      "matchDatasources": ["docker", "helm"],
-      "matchPackageNames": [
-        "/calibre/",
-        "/radarr/",
-        "/renovate/",
-        "/sonarr/",
-        "/sabnzbd/",
-        "/tautulli/",
-        "/unifi/",
-        "/prowlarr/",
-        "/cert-manager/",
-        "/metrics-server/",
-        "/kube-prometheus-stack/",
+      matchDatasources: ['docker', 'helm'],
+      matchPackageNames: [
+        '/calibre/',
+        '/radarr/',
+        '/renovate/',
+        '/sonarr/',
+        '/sabnzbd/',
+        '/tautulli/',
+        '/unifi/',
+        '/prowlarr/',
+        '/cert-manager/',
+        '/metrics-server/',
+        '/kube-prometheus-stack/',
       ],
-      "automerge": true,
-      "automergeSchedule": ["* * * * *"],
-      "addLabels": ["automerge-anytime"],
+      automerge: true,
+      automergeSchedule: ['* * * * *'],
+      addLabels: ['automerge-anytime'],
     },
 
     // Disable automerge
     {
-      "matchDatasources": ["docker", "helm"],
-      "matchPackageNames": [
-        "/longhorn/",
-        "/cilium/",
-        "/vault/",
-        "/csi-driver-smb/",
-        "/traefik/",
+      matchDatasources: ['docker', 'helm'],
+      matchPackageNames: [
+        '/longhorn/',
+        '/cilium/',
+        '/vault/',
+        '/csi-driver-smb/',
+        '/traefik/',
       ],
-      "automerge": false,
-      "addLabels": ["automerge-disabled"],
+      automerge: false,
+      addLabels: ['automerge-disabled'],
     },
 
     // Disable automerge for major releases
     {
-      "matchUpdateTypes": ["major"],
-      "automerge": false,
-      "addLabels": ["automerge-disabled"],
+      matchUpdateTypes: ['major'],
+      automerge: false,
+      addLabels: ['automerge-disabled'],
     },
 
     // Helm general rule
     {
-      "matchDatasources": ["helm"],
-      "commitMessageTopic": "Helm chart {{depName}}",
-      "enabled": true,
+      matchDatasources: ['helm'],
+      commitMessageTopic: 'Helm chart {{depName}}',
+      enabled: true,
     },
 
     // Docker general rule
     {
-      "matchDatasources": ["docker"],
-      "commitMessageTopic": "Docker image {{depName}}",
-      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{/if}}{{/if}}{{#if newDigestShort}} (digest {{newDigestShort}}){{/if}}",
-      "enabled": true,
+      matchDatasources: ['docker'],
+      commitMessageTopic: 'Docker image {{depName}}',
+      commitMessageExtra: 'to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{/if}}{{/if}}{{#if newDigestShort}} (digest {{newDigestShort}}){{/if}}',
+      enabled: true,
     },
 
     // Docker label rules
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major"],
-      "addLabels": ["renovate/image-release", "dependency/major"]
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['major'],
+      addLabels: ['renovate/image-release', 'dependency/major']
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor"],
-      "addLabels": ["renovate/image-release", "dependency/minor"]
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['minor'],
+      addLabels: ['renovate/image-release', 'dependency/minor']
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"],
-      "addLabels": ["renovate/image-release", "dependency/patch"]
+      matchDatasources: ['docker'],
+      matchUpdateTypes: ['patch'],
+      addLabels: ['renovate/image-release', 'dependency/patch']
     },
 
     // Helm label rules
     {
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["major"],
-      "addLabels": ["renovate/helm-release", "dependency/major"]
+      matchDatasources: ['helm'],
+      matchUpdateTypes: ['major'],
+      addLabels: ['renovate/helm-release', 'dependency/major']
     },
     {
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["minor"],
-      "addLabels": ["renovate/helm-release", "dependency/minor"]
+      matchDatasources: ['helm'],
+      matchUpdateTypes: ['minor'],
+      addLabels: ['renovate/helm-release', 'dependency/minor']
     },
     {
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["patch"],
-      "addLabels": ["renovate/helm-release", "dependency/patch"]
+      matchDatasources: ['helm'],
+      matchUpdateTypes: ['patch'],
+      addLabels: ['renovate/helm-release', 'dependency/patch']
     },
   ],
 }
