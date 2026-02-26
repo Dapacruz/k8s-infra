@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - audiobookshelf
   - calibre
-  - calibre-web-automated
+  # - calibre-web-automated
   - homepage
   - linkding
   - plex
