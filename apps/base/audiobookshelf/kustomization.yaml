@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: audiobookshelf
+resources:
+- certificate.yaml
+- deployment.yaml
+- ingress.yaml
+- namespace.yaml
+- secret.yaml
+- service-account.yaml
+- service.yaml
+- storage.yaml
+
