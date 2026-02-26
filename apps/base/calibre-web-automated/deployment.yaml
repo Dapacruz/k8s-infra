@@ -41,6 +41,8 @@ spec:
           value: "America/Los_Angeles"
         - name: NETWORK_SHARE_MODE
           value: "true"
+        - name: HARDCOVER_TOKEN
+          value: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJIYXJkY292ZXIiLCJ2ZXJzaW9uIjoiOCIsImp0aSI6ImU2NWYzNjViLTFkOTgtNGQ0Ny05NDI5LWFkODM4NTdkMzRkMSIsImFwcGxpY2F0aW9uSWQiOjIsInN1YiI6Ijc5NTMwIiwiYXVkIjoiMSIsImlkIjoiNzk1MzAiLCJsb2dnZWRJbiI6dHJ1ZSwiaWF0IjoxNzcyMTQzNjI4LCJleHAiOjE4MDM2Nzk2MjgsImh0dHBzOi8vaGFzdXJhLmlvL2p3dC9jbGFpbXMiOnsieC1oYXN1cmEtYWxsb3dlZC1yb2xlcyI6WyJ1c2VyIl0sIngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1yb2xlIjoidXNlciIsIlgtaGFzdXJhLXVzZXItaWQiOiI3OTUzMCJ9LCJ1c2VyIjp7ImlkIjo3OTUzMH19.uZfbtIgiGDemjjM1vZ7jp4IObtgukimfwyDGUspeua8"
         volumeMounts:
         - name: data
           mountPath: /config
@@ -53,7 +55,7 @@ spec:
           subPath: eBooks
         - name: media
           mountPath: /cwa-book-ingest
-          subPath: eBooks/Inbox
+          subPath: eBooks/[Ingest]
       volumes:
       - name: data
         persistentVolumeClaim:
