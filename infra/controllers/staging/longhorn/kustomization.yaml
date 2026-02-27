@@ -10,3 +10,11 @@ configMapGenerator:
   files:
   - values.yaml
 
+patches:
+- target:
+    kind: HelmRelease
+    name: longhorn
+  patch: |-
+    - op: replace
+      path: /spec/chart/spec/version
+      value: 1.9.2
