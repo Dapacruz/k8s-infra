@@ -14,4 +14,8 @@ spec:
                 name: metrics-server
                 namespace: kube-system
             interval: 12h
+    values:
+      args:
+        - --kubelet-certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        - --kubelet-preferred-address-types=InternalIP
 
