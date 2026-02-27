@@ -12,3 +12,5 @@ defaultSettings:
 defaultBackupStore:
   backupTarget: cifs://nas.cruznet.io/Media/Backups/Longhorn
   backupTargetCredentialSecret: cifs-secret
+preUpgradeChecker:
+  jobEnabled: false
