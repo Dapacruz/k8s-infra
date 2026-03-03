@@ -17,7 +17,6 @@ alertmanager:
               app: alert-manager
 grafana:
   defaultDashboardsTimezone: America/Los_Angeles
-  adminPassword: prom-operator
   persistence:
     enabled: true
     type: sts
@@ -76,7 +75,6 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              # storage: 50Gi
               storage: 10Gi
           selector:
             matchLabels:
