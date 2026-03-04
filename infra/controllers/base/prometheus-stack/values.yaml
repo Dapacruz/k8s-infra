@@ -66,6 +66,7 @@ prometheus:
     allowedHostPaths: []
     volumes: []
   prometheusSpec:
+    retention: 395d
     storageSpec:
       volumeClaimTemplate:
         metadata:
