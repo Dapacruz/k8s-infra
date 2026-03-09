@@ -4,6 +4,7 @@ resources:
   - cilium
   - traefik
   - cert-manager
+  - image-pre-puller
   - longhorn
   - metrics-server
   - prometheus-stack

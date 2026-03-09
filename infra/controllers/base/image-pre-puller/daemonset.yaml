@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: image-pre-puller
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: image-pre-puller
+  template:
+    metadata:
+      labels:
+        app: image-pre-puller
+    spec:
+      initContainers:
+        - name: pull-plex
+          image: lscr.io/linuxserver/plex:1.43.0.10492-121068a07-ls294
+          command: ["sh", "-c", "echo pulled Plex"]
+        - name: pull-seerr
+          image: ghcr.io/seerr-team/seerr:v3.1.0
+          command: ["sh", "-c", "echo pulled Seerr"]
+        - name: pull-audiobookshelf
+          image: ghcr.io/advplyr/audiobookshelf:2.32.1
+          command: ["sh", "-c", "echo pulled Audiobookshelf"]
+        - name: pull-uptime-kuma
+          image: louislam/uptime-kuma:2
+          command: ["sh", "-c", "echo pulled Uptime Kuma"]
+      containers:
+        - name: pause
+          image: registry.k8s.io/pause:3.9
+          resources:
+            requests:
+              cpu: 1m
+              memory: 4Mi
+
