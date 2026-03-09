@@ -55,8 +55,8 @@ spec:
           claimName: radarr-claim
       - name: media
         nfs:
-          server: nas.cruznet.io            # or your NAS IP
-          path: /volume1/Media           # Synology NFS path
+          server: nas.cruznet.io
+          path: /volume1/Media
           readOnly: false
       - name: sabnzbd-downloads
         persistentVolumeClaim:

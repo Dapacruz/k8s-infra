@@ -54,6 +54,8 @@ spec:
         persistentVolumeClaim:
           claimName: audiobookshelf-config-claim
       - name: media
-        persistentVolumeClaim:
-          claimName: media-claim
+        nfs:
+          server: nas.cruznet.io
+          path: /volume1/Media
+          readOnly: false
 
