@@ -4,7 +4,6 @@ resources:
   - cilium
   - traefik
   - cert-manager
-  - csi-driver-smb
   - longhorn
   - metrics-server
   - prometheus-stack
