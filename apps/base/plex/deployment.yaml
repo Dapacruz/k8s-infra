@@ -87,9 +87,6 @@ spec:
         - name: media
           mountPath: /movies
           subPath: Movies
-        - name: media
-          mountPath: /audiobooks
-          subPath: Audiobooks
       volumes:
       - name: config
         persistentVolumeClaim:
@@ -102,6 +99,8 @@ spec:
           type: ""
         name: quicksync
       - name: media
-        persistentVolumeClaim:
-          claimName: media-claim
+        nfs:
+          server: nas.cruznet.io
+          path: /volume1/Media
+          readOnly: false
 
