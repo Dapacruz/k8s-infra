@@ -44,9 +44,6 @@ spec:
           mountPath: /config
           subPath: config
         - name: media
-          mountPath: /tv
-          subPath: TV
-        - name: media
           mountPath: /movies
           subPath: Movies
         - name: sabnzbd-downloads
