@@ -13,12 +13,18 @@ spec:
           containers:
             - name: rsync-backup
               image: alpine:3.23@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
-              command:
-                - /bin/sh
-                - -c
-                - >
-                  apk add --no-cache rsync &&
-                  rsync -av --delete --no-perms --no-owner --no-group --include='David/***' --include='Jen/***' --include='Alyssa/***' --exclude='*' /calibre-library/ /nas-backup/
+              command: ["/bin/sh"]
+              args:
+                - "-c"
+                - |
+                  INCLUDE_DIRS="David Jen Alyssa"
+                  apk add --no-cache rsync
+                  for dir in $INCLUDE_DIRS; do
+                    includes="$includes --include=$dir/***"
+                  done
+                  rsync -av --delete --no-perms --no-owner --no-group \
+                    $includes --exclude='*' \
+                    /calibre-library/ /nas-backup/
               volumeMounts:
                 - name: calibre-lib
                   mountPath: /calibre-library
