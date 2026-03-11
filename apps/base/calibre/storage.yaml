@@ -14,7 +14,7 @@ spec:
       numberOfReplicas: "1"
       staleReplicaTimeout: "30"
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   capacity:
     storage: "5Gi"
 ---
@@ -27,7 +27,7 @@ spec:
   volumeName: calibre-data
   volumeMode: Filesystem
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: "5Gi"
