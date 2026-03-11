@@ -1,0 +1,42 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: calibre-weekly-backup
+  namespace: calibre
+spec:
+  schedule: "0 3 * * 0"  # Weekly at 03:00 Sunday
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: rsync-backup
+              image: alpine:3.19
+              command:
+                - /bin/sh
+                - -c
+                - >
+                  apk add --no-cache rsync &&
+                  rsync -av --delete \
+                    --include='David' \
+                    --include='Jen' \
+                    --include='Alyssa' \
+                    --exclude='*' \
+                    /calibre-library/ /nas-backup/
+              volumeMounts:
+                - name: calibre-lib
+                  mountPath: /calibre-library
+                - name: media
+                  mountPath: /nas-backup
+                  subPath: eBooks
+          volumes:
+            - name: calibre-lib
+              persistentVolumeClaim:
+                claimName: calibre-claim
+            - name: media
+              nfs:
+                server: nas.cruznet.io
+                path: /volume1/Media
+                readOnly: false
+
