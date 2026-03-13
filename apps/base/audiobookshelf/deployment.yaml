@@ -78,6 +78,8 @@ spec:
         - name: media
           mountPath: /metadata
           subPath: Audiobookshelf/Metadata
+        - name: tmp
+          mountPath: /tmp
       volumes:
       - name: config
         persistentVolumeClaim:
@@ -87,4 +89,6 @@ spec:
           server: nas.cruznet.io
           path: /volume1/Media
           readOnly: false
+      - name: tmp
+        emptyDir: {}
 
