@@ -4,7 +4,7 @@ metadata:
   name: calibre-weekly-backup
   namespace: calibre
 spec:
-  schedule: "0 3 * * 0"  # Weekly at 03:00 Sunday
+  schedule: "0 3 * * *"
   jobTemplate:
     spec:
       template:
