@@ -26,6 +26,7 @@ spec:
       containers:
       - name: calibre
         image: lscr.io/linuxserver/calibre:v9.3.1-ls387@sha256:4b91f11ba689ee72891360d625caf043b04541e1c4ab0723ed3e377123c579c8
+        imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: false
@@ -52,7 +53,6 @@ spec:
           periodSeconds: 5
           timeoutSeconds: 3
           failureThreshold: 3
-        imagePullPolicy: IfNotPresent
         ports:
         - name: http
           containerPort: 8080
