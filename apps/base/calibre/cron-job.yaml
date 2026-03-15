@@ -5,6 +5,7 @@ metadata:
   namespace: calibre
 spec:
   schedule: "0 3 * * *"
+  timeZone: "US/Pacific"
   jobTemplate:
     spec:
       template:
