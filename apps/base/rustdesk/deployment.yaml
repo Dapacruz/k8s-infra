@@ -36,7 +36,7 @@ spec:
           readOnlyRootFilesystem: true
           capabilities:
             drop:
-              - ALL
+            - ALL
         resources:
           limits:
             memory: "128Mi"
@@ -84,7 +84,7 @@ spec:
           readOnlyRootFilesystem: true
           capabilities:
             drop:
-              - ALL
+            - ALL
         resources:
           limits:
             memory: "128Mi"

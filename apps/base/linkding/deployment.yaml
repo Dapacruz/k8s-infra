@@ -34,7 +34,7 @@ spec:
           readOnlyRootFilesystem: false
           capabilities:
             drop:
-              - ALL
+            - ALL
         resources:
           requests:
             memory: "256Mi"
