@@ -18,25 +18,50 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      # securityContext:
-      #   fsGroup: 33
-      #   runAsUser: 33
-      #   runAsGroup: 33
+      securityContext:
+        runAsNonRoot: false
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: tautulli
         image: ghcr.io/tautulli/tautulli:v2.16.1@sha256:5f3603345e3334bd30aadf9e1fa9b0acb401b5225cc42e9b7a3dbf660532fbd9
         imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8181
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8181
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
         ports:
         - name: http
           containerPort: 8181
           protocol: TCP
-        securityContext:
-          allowPrivilegeEscalation: false
         env:
         - name: PUID
-          value: "501"
+          value: "1000"
         - name: PGID
-          value: "20"
+          value: "1000"
         - name: TZ
           value: "America/Los_Angeles"
         volumeMounts:
