@@ -18,19 +18,25 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      # securityContext:
-      #   fsGroup: 33
-      #   runAsUser: 33
-      #   runAsGroup: 33
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: hbbr
         args:
         - hbbr
         image: rustdesk/rustdesk-server:1.1.15@sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
         imagePullPolicy: IfNotPresent
-        ports:
-          - containerPort: 21117
-          - containerPort: 21119
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
         resources:
           limits:
             memory: "128Mi"
@@ -38,8 +44,23 @@ spec:
           requests:
             memory: "64Mi"
             cpu: "100m"
-        securityContext:
-          allowPrivilegeEscalation: false
+        livenessProbe:
+          tcpSocket:
+            port: 21117
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          tcpSocket:
+            port: 21117
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        ports:
+          - containerPort: 21117
+          - containerPort: 21119
         env:
         - name: PUID
           value: "1000"
@@ -58,12 +79,12 @@ spec:
         - localhost:21117
         image: rustdesk/rustdesk-server:1.1.15@sha256:10818ec05b179039c6660f4d8e74b303f0db2858bbad2b18e24992ea22d54cd6
         imagePullPolicy: IfNotPresent
-        ports:
-          - containerPort: 21115
-          - containerPort: 21116
-          - containerPort: 21116
-            protocol: UDP
-          - containerPort: 21118
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
         resources:
           limits:
             memory: "128Mi"
@@ -71,8 +92,26 @@ spec:
           requests:
             memory: "64Mi"
             cpu: "100m"
-        securityContext:
-          allowPrivilegeEscalation: false
+        livenessProbe:
+          tcpSocket:
+            port: 21116
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          tcpSocket:
+            port: 21116
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        ports:
+          - containerPort: 21115
+          - containerPort: 21116
+          - containerPort: 21116
+            protocol: UDP
+          - containerPort: 21118
         env:
         - name: PUID
           value: "1000"
