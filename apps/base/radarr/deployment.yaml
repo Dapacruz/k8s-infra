@@ -18,25 +18,48 @@ spec:
       automountServiceAccountToken: true
       dnsPolicy: ClusterFirst
       enableServiceLinks: true
-      # securityContext:
-      #   fsGroup: 33
-      #   runAsUser: 33
-      #   runAsGroup: 33
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: radarr
         image: lscr.io/linuxserver/radarr:6.0.4.10291-ls293@sha256:6d3e68474ea146f995af98d3fb2cb1a14e2e4457ddaf035aa5426889e2f9249c
         imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: true
+          readOnlyRootFilesystem: false
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 7878
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 7878
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
         ports:
         - name: http
           containerPort: 7878
           protocol: TCP
-        securityContext:
-          allowPrivilegeEscalation: false
         env:
-        - name: PUID
-          value: "501"
-        - name: PGID
-          value: "20"
         - name: TZ
           value: "America/Los_Angeles"
         volumeMounts:
