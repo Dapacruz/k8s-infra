@@ -24,7 +24,7 @@ spec:
           type: RuntimeDefault
       containers:
       - name: it-tools
-        image: ghcr.io/corentinth/it-tools:2024.10.22-7ca5933@sha256:8b8128748339583ca951af03dfe02a9a4d7363f61a216226fc28030731a5a61f
+        image: ghcr.io/sharevb/it-tools:2026.1.4
         imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: false
@@ -46,7 +46,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 80
+            port: 8080
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 5
@@ -54,13 +54,13 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 80
+            port: 8080
           initialDelaySeconds: 5
           periodSeconds: 5
           timeoutSeconds: 3
           failureThreshold: 3
         ports:
           - name: http
-            containerPort: 80
+            containerPort: 8080
             protocol: TCP
 
