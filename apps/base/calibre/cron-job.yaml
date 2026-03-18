@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: calibre-weekly-backup
+  name: calibre-daily-backup
   namespace: calibre
 spec:
   schedule: "0 3 * * *"
