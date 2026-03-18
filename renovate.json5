@@ -36,6 +36,7 @@
       matchPackageNames: [
         '/calibre/',
         '/cert-manager/',
+        '/it-tools/',
         '/kube-prometheus-stack/',
         '/metrics-server/',
         '/prowlarr/',
