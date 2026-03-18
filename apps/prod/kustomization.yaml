@@ -4,6 +4,7 @@ resources:
   - audiobookshelf
   - calibre
   - homepage
+  - it-tools
   - linkding
   - plex
   - prowlarr

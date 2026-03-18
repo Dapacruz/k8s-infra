@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: it-tools
+  labels:
+    app.kubernetes.io/name: it-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: it-tools
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: it-tools
+    spec:
+      serviceAccountName: it-tools
+      automountServiceAccountToken: true
+      dnsPolicy: ClusterFirst
+      enableServiceLinks: true
+      securityContext:
+        runAsNonRoot: false
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: it-tools
+        image: ghcr.io/corentinth/it-tools
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          capabilities:
+            drop:
+            - ALL
+            add:
+            - CHOWN
+            - SETGID
+            - SETUID
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+
