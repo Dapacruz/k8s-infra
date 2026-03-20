@@ -31,17 +31,4 @@ spec:
   resources:
     requests:
       storage: "5Gi"
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: media-claim
-spec:
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 10Gi
-  volumeName: prowlarr-media-data
-  storageClassName: media-data
 
