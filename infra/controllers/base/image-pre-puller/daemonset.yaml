@@ -20,7 +20,7 @@ spec:
           image: ghcr.io/seerr-team/seerr:v3.1.0@sha256:b35ba0461c4a1033d117ac1e5968fd4cbe777899e4cbfbdeaf3d10a42a0eb7e9
           command: ["sh", "-c", "echo pulled Seerr"]
         - name: pull-audiobookshelf
-          image: ghcr.io/advplyr/audiobookshelf:2.33.0@sha256:41047b9985f9c38c92ae8b4b34ffd1d77fca36efdfe49c6b962ff2fc8ccae1e9
+          image: ghcr.io/advplyr/audiobookshelf:2.33.1@sha256:a4a5841bba093d81e5f4ad1eaedb4da3fda6dbb2528c552349da50ad1f7ae708
           command: ["sh", "-c", "echo pulled Audiobookshelf"]
         - name: pull-uptime-kuma
           image: louislam/uptime-kuma:2@sha256:7337368a77873f159435de9ef09567f68c31285ed5f951dec36256c4b267ee44
