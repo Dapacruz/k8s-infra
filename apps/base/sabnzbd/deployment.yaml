@@ -20,9 +20,9 @@ spec:
       enableServiceLinks: true
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
+        runAsUser: 501
+        runAsGroup: 501
+        fsGroup: 501
         seccompProfile:
           type: RuntimeDefault
       containers:
