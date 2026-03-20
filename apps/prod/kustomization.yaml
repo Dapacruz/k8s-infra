@@ -6,7 +6,7 @@ resources:
   - homepage
   - it-tools
   - linkding
-  - plex
+  # - plex
   - prowlarr
   - radarr
   - rustdesk
