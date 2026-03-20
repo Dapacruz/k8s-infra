@@ -10,7 +10,7 @@ resources:
   - prowlarr
   - radarr
   - rustdesk
-  # - sabnzbd
+  - sabnzbd
   - seerr
   - sonarr
   - tautulli
