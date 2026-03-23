@@ -10,13 +10,13 @@
   dependencyDashboardTitle: 'Renovate Dashboard',
   dependencyDashboardAutoclose: false,
   kubernetes: {
-    managerFilePatterns: [
-      '/\\.yaml$/',
+    fileMatch: [
+      '\\.yaml$',
     ],
   },
   flux: {
-    managerFilePatterns: [
-      '/\\.yaml$/',
+    fileMatch: [
+      '\\.yaml$',
     ],
   },
   assignees: [
