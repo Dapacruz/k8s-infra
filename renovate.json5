@@ -10,13 +10,13 @@
   dependencyDashboardTitle: 'Renovate Dashboard',
   dependencyDashboardAutoclose: false,
   kubernetes: {
-    fileMatch: [
-      '\\.yaml$',
+    managerFilePatterns: [
+      '/\\.yaml$/',
     ],
   },
   flux: {
-    fileMatch: [
-      '\\.yaml$',
+    managerFilePatterns: [
+      '/\\.yaml$/',
     ],
   },
   assignees: [
@@ -24,15 +24,21 @@
   ],
   commitBody: 'Signed-off-by: Dapacruz',
   prConcurrentLimit: 20,
-  suppressNotifications: ['prIgnoreNotification'],
+  suppressNotifications: [
+    'prIgnoreNotification',
+  ],
   automerge: true,
-  automergeSchedule: ['* 1-4 * * *'],
+  automergeSchedule: [
+    '* 1-4 * * *',
+  ],
   rebaseWhen: 'behind-base-branch',
   ignoreTests: true,
   packageRules: [
-    // Automerge anytime exception
     {
-      matchDatasources: ['docker', 'helm'],
+      matchDatasources: [
+        'docker',
+        'helm',
+      ],
       matchPackageNames: [
         '/calibre/',
         '/cert-manager/',
@@ -49,13 +55,18 @@
         '/unifi/',
       ],
       automerge: true,
-      automergeSchedule: ['* * * * *'],
-      labels: ['automerge-anytime'],
+      automergeSchedule: [
+        '* * * * *',
+      ],
+      labels: [
+        'automerge-anytime',
+      ],
     },
-
-    // Disable automerge
     {
-      matchDatasources: ['docker', 'helm'],
+      matchDatasources: [
+        'docker',
+        'helm',
+      ],
       matchPackageNames: [
         '/cilium/',
         '/csi-driver-smb/',
@@ -64,63 +75,105 @@
         '/vault/',
       ],
       automerge: false,
-      labels: ['automerge-disabled'],
+      labels: [
+        'automerge-disabled',
+      ],
     },
-
-    // Disable automerge for major releases
     {
-      matchUpdateTypes: ['major'],
+      matchUpdateTypes: [
+        'major',
+      ],
       automerge: false,
-      labels: ['automerge-disabled'],
+      labels: [
+        'automerge-disabled',
+      ],
     },
-
-    // Helm general rule
     {
-      matchDatasources: ['helm'],
+      matchDatasources: [
+        'helm',
+      ],
       commitMessageTopic: 'Helm chart {{depName}}',
       enabled: true,
     },
-
-    // Docker general rule
     {
-      matchDatasources: ['docker'],
+      matchDatasources: [
+        'docker',
+      ],
       commitMessageTopic: 'Docker image {{depName}}',
       commitMessageExtra: 'to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{/if}}{{/if}}{{#if newDigestShort}} (digest {{newDigestShort}}){{/if}}',
       enabled: true,
     },
-
-    // Docker label rules
     {
-      matchDatasources: ['docker'],
-      matchUpdateTypes: ['major'],
-      addLabels: ['renovate/image-release', 'dependency/major']
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      addLabels: [
+        'renovate/image-release',
+        'dependency/major',
+      ],
     },
     {
-      matchDatasources: ['docker'],
-      matchUpdateTypes: ['minor'],
-      addLabels: ['renovate/image-release', 'dependency/minor']
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      addLabels: [
+        'renovate/image-release',
+        'dependency/minor',
+      ],
     },
     {
-      matchDatasources: ['docker'],
-      matchUpdateTypes: ['patch'],
-      addLabels: ['renovate/image-release', 'dependency/patch']
-    },
-
-    // Helm label rules
-    {
-      matchDatasources: ['helm'],
-      matchUpdateTypes: ['major'],
-      addLabels: ['renovate/helm-release', 'dependency/major']
-    },
-    {
-      matchDatasources: ['helm'],
-      matchUpdateTypes: ['minor'],
-      addLabels: ['renovate/helm-release', 'dependency/minor']
+      matchDatasources: [
+        'docker',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      addLabels: [
+        'renovate/image-release',
+        'dependency/patch',
+      ],
     },
     {
-      matchDatasources: ['helm'],
-      matchUpdateTypes: ['patch'],
-      addLabels: ['renovate/helm-release', 'dependency/patch']
+      matchDatasources: [
+        'helm',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      addLabels: [
+        'renovate/helm-release',
+        'dependency/major',
+      ],
+    },
+    {
+      matchDatasources: [
+        'helm',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      addLabels: [
+        'renovate/helm-release',
+        'dependency/minor',
+      ],
+    },
+    {
+      matchDatasources: [
+        'helm',
+      ],
+      matchUpdateTypes: [
+        'patch',
+      ],
+      addLabels: [
+        'renovate/helm-release',
+        'dependency/patch',
+      ],
     },
   ],
 }
