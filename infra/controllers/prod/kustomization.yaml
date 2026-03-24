@@ -7,7 +7,7 @@ resources:
   - image-pre-puller
   - longhorn
   - metrics-server
-  # - prometheus-stack
+  - prometheus-stack
   - reloader
   - external-secrets
   - vault
