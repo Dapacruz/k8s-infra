@@ -63,5 +63,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   capacity:
-    storage: "20Gi"
+    storage: "50Gi"
 
