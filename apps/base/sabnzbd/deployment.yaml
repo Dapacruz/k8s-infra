@@ -29,7 +29,7 @@ spec:
           type: RuntimeDefault
       containers:
       - name: sabnzbd
-        image: lscr.io/linuxserver/sabnzbd:4.5.5-ls246
+        image: lscr.io/linuxserver/sabnzbd:4.5.5
         imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: true
