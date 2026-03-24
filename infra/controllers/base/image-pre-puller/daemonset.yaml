@@ -14,7 +14,7 @@ spec:
     spec:
       initContainers:
         - name: pull-plex
-          image: lscr.io/linuxserver/plex:1.43.0.10492-121068a07-ls294@sha256:55c2def2eb662c2ce1a13e569278aeb87b2509ac7c57711d0da0a5d6d1607ad8
+          image: lscr.io/linuxserver/plex:1.43.0
           command: ["sh", "-c", "echo pulled Plex"]
         - name: pull-seerr
           image: ghcr.io/seerr-team/seerr:v3.1.0@sha256:b35ba0461c4a1033d117ac1e5968fd4cbe777899e4cbfbdeaf3d10a42a0eb7e9
@@ -23,7 +23,7 @@ spec:
           image: ghcr.io/advplyr/audiobookshelf:2.33.1@sha256:a4a5841bba093d81e5f4ad1eaedb4da3fda6dbb2528c552349da50ad1f7ae708
           command: ["sh", "-c", "echo pulled Audiobookshelf"]
         - name: pull-uptime-kuma
-          image: louislam/uptime-kuma:2@sha256:7337368a77873f159435de9ef09567f68c31285ed5f951dec36256c4b267ee44
+          image: louislam/uptime-kuma:2.2.1
           command: ["sh", "-c", "echo pulled Uptime Kuma"]
       containers:
         - name: pause
