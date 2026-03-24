@@ -30,7 +30,7 @@ spec:
           type: RuntimeDefault
       containers:
       - name: plex
-        image: lscr.io/linuxserver/plex:1.43.0
+        image: lscr.io/linuxserver/plex:1.43.0@sha256:a27f1ce1e1d14cd3627ed217f042bf8de0f796ed274fb27b2dc971ae22a64b95
         imagePullPolicy: IfNotPresent
         securityContext:
           allowPrivilegeEscalation: true
