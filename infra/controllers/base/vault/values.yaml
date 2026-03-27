@@ -3,6 +3,9 @@ global:
 server:
   dataStorage:
     storageClass: vault-data
+    labels:
+      recurring-job.longhorn.io/source: "enabled"
+      recurring-job.longhorn.io/backup-daily-with-weekly-full: "enabled"
 csi:
   # Settings for the daemonSet used to run the provider.
   daemonSet:
