@@ -1,14 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - cert-manager
   - cilium
-  - external-secrets
+  - traefik
+  - cert-manager
   - image-pre-puller
   - longhorn
   - metrics-server
-  # - prometheus-stack
+  - prometheus-stack
   - reloader
-  - traefik
+  - external-secrets
   - vault
 
