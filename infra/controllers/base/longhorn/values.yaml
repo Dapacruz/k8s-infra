@@ -8,5 +8,5 @@ csi:
 defaultSettings:
   defaultReplicaCount: 1
 defaultBackupStore:
-  backupTarget: cifs://nas.cruznet.io/Media/Backups/Longhorn
-  backupTargetCredentialSecret: cifs-secret
+  backupTarget: nfs://nas.cruznet.io/Media/Backups/Longhorn
+  backupTargetCredentialSecret: nfs-secret
