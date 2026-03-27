@@ -6,6 +6,9 @@ alertmanager:
       volumeClaimTemplate:
         metadata:
           name: alert-manager-claim
+          labels:
+            recurring-job.longhorn.io/source: "enabled"
+            recurring-job.longhorn.io/backup-daily-with-weekly-full: "enabled"
         spec:
           storageClassName: ""
           accessModes: ["ReadWriteOnce"]
@@ -21,6 +24,9 @@ grafana:
     enabled: true
     type: sts
     storageClassName: grafana-data
+    labels:
+      recurring-job.longhorn.io/source: "enabled"
+      recurring-job.longhorn.io/backup-daily-with-weekly-full: "enabled"
     accessModes:
       - ReadWriteOnce
     size: 10Gi
@@ -71,6 +77,9 @@ prometheus:
       volumeClaimTemplate:
         metadata:
           name: prometheus-claim
+          labels:
+            recurring-job.longhorn.io/source: "enabled"
+            recurring-job.longhorn.io/backup-daily-with-weekly-full: "enabled"
         spec:
           storageClassName: ""
           accessModes: ["ReadWriteOnce"]
