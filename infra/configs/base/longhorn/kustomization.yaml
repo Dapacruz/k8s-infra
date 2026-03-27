@@ -4,4 +4,5 @@ resources:
   - ingress.yaml
   - certificate.yaml
   - secret.yaml
+  - weekly-trim.yaml
 
