@@ -10,5 +10,5 @@ resources:
   - prometheus-stack
   - reloader
   - external-secrets
-  - vault
+  # - vault
 
