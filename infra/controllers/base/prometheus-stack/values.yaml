@@ -24,9 +24,6 @@ grafana:
     enabled: true
     type: sts
     storageClassName: grafana-data
-    labels:
-      recurring-job.longhorn.io/source: "enabled"
-      recurring-job.longhorn.io/backup-daily-with-weekly-full: "enabled"
     accessModes:
       - ReadWriteOnce
     size: 10Gi

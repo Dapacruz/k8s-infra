@@ -28,4 +28,25 @@ spec:
   valuesFrom:
   - kind: ConfigMap
     name: prometheus-stack-values
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              group: apps
+              version: v1
+              kind: StatefulSet
+              name: prometheus-stack-grafana
+            patch: |-
+              apiVersion: apps/v1
+              kind: StatefulSet
+              metadata:
+                name: prometheus-stack-grafana
+                namespace: prometheus-stack
+              spec:
+                volumeClaimTemplates:
+                  - metadata:
+                      name: storage
+                      labels:
+                        recurring-job.longhorn.io/source: "enabled"
+                        recurring-job.longhorn.io/backup-daily-with-weekly-full: "enabled"
 
